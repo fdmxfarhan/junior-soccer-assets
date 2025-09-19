@@ -1,0 +1,61 @@
+Removed Member From Class: ClassName=ATT-Light Member=R?
+Change Component Designator: OldDesignator=R3 NewDesignator=R4
+Change Component Designator: OldDesignator=R4 NewDesignator=R5
+Change Component Designator: OldDesignator=R5 NewDesignator=R6
+Change Component Designator: OldDesignator=R6 NewDesignator=R7
+Change Component Designator: OldDesignator=R7 NewDesignator=R8
+Change Component Designator: OldDesignator=R8 NewDesignator=R9
+Change Component Designator: OldDesignator=R9 NewDesignator=R10
+Change Component Designator: OldDesignator=R10 NewDesignator=R11
+Change Component Designator: OldDesignator=R11 NewDesignator=R12
+Change Component Designator: OldDesignator=R12 NewDesignator=R13
+Change Component Designator: OldDesignator=R13 NewDesignator=R14
+Change Component Designator: OldDesignator=R14 NewDesignator=R15
+Change Component Designator: OldDesignator=R15 NewDesignator=R16
+Change Component Designator: OldDesignator=R16 NewDesignator=R17
+Change Component Designator: OldDesignator=R17 NewDesignator=R18
+Change Component Designator: OldDesignator=R18 NewDesignator=R19
+Change Component Designator: OldDesignator=R19 NewDesignator=R20
+Change Component Designator: OldDesignator=R20 NewDesignator=R21
+Change Component Designator: OldDesignator=R? NewDesignator=R3
+Added Component: Designator=C19(CAP 5x10x13 black)
+Added Component: Designator=C20(CAP 5x10x13 black)
+Added Component: Designator=C21(CAP 5x10x13 black)
+Added Component: Designator=C22(CAP 5x10x13 black)
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=+12 Pin=C19-2
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=+12 Pin=C20-2
+Added Pin To Net: NetName=GND Pin=C21-1
+Added Pin To Net: NetName=+12 Pin=C21-2
+Added Pin To Net: NetName=GND Pin=C22-1
+Added Pin To Net: NetName=+12 Pin=C22-2
+Change Net Name : Old Net Name=NetR6_2 New Net Name=NetR7_2
+Change Net Name : Old Net Name=NetR13_1 New Net Name=NetR14_1
+Change Net Name : Old Net Name=NetR19_1 New Net Name=NetR20_1
+Change Net Name : Old Net Name=NetR?_2 New Net Name=NetR3_2
+Added Member To Class: ClassName=ATT-Light Member=Component C19 1000uF
+Added Member To Class: ClassName=ATT-Light Member=Component C20 1000uF
+Added Member To Class: ClassName=ATT-Light Member=Component C21 1000uF
+Added Member To Class: ClassName=ATT-Light Member=Component C22 1000uF
+Added Member To Class: ClassName=ATT-Light Member=Component J9 XH3
+Added Member To Class: ClassName=ATT-Light Member=Component J12 XH2
+Added Member To Class: ClassName=ATT-Light Member=Component J13 XH2
+Added Member To Class: ClassName=ATT-Light Member=Component J14 XH3
+Added Member To Class: ClassName=ATT-Light Member=Component J17 XH3
+Added Member To Class: ClassName=ATT-Light Member=Component J19 XH7
+Added Member To Class: ClassName=ATT-Light Member=Component J20 XH7
+Added Member To Class: ClassName=ATT-Light Member=Component R5 100mH
+Added Member To Class: ClassName=ATT-Light Member=Component R6 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R7 100
+Added Member To Class: ClassName=ATT-Light Member=Component R9 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R11 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R13 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R14 100
+Added Member To Class: ClassName=ATT-Light Member=Component R15 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R17 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R21 10K
+Added Member To Class: ClassName=ATT-Light Member=Component U8 BT
+Added Member To Class: ClassName=ATT-Light Member=Component U9 OpenMV
+Added Member To Class: ClassName=ATT-Light Member=Component U10 RELAY
+Added Room: Name=ATT-Light

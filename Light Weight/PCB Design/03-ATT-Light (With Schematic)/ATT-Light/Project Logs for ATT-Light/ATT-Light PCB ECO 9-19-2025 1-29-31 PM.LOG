@@ -1,0 +1,24 @@
+Change Component Designator: OldDesignator=C19 NewDesignator=C21
+Change Component Designator: OldDesignator=C20 NewDesignator=C22
+Change Component Designator: OldDesignator=C21 NewDesignator=C23
+Change Component Designator: OldDesignator=C22 NewDesignator=C24
+Added Component: Designator=C19(CAP 5x10x13 black)
+Added Component: Designator=C20(CAP 5x10x13 black)
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=+12 Pin=C19-2
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=+12 Pin=C20-2
+Added Member To Class: ClassName=ATT-Light Member=Component C23 1000uF
+Added Member To Class: ClassName=ATT-Light Member=Component C24 1000uF
+Added Member To Class: ClassName=ATT-Light Member=Component R3 RES
+Added Member To Class: ClassName=ATT-Light Member=Component R4 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R7 100
+Added Member To Class: ClassName=ATT-Light Member=Component R8 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R10 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R12 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R14 100
+Added Member To Class: ClassName=ATT-Light Member=Component R15 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R16 10K
+Added Member To Class: ClassName=ATT-Light Member=Component R18 1K
+Added Member To Class: ClassName=ATT-Light Member=Component R20 100
+Added Room: Name=ATT-Light
