@@ -1,0 +1,185 @@
+Board Information Report
+Filename     : C:\Users\fdmxf\Documents\GitHub\junior-soccer-assets\Voltage Booster\voltageBooster_test.PcbDoc
+Date         : 10/4/2025
+Time         : 6:55:32 PM
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 29.464mmx49.022mm
+    Components on board, 32
+count : 2
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 38
+    Connections routed, 38
+    Connections remaining, 0
+count : 4
+
+Layer, Arcs, Pads, Vias, Tracks, Texts, Fills, Regions, ComponentBodies
+    Top Layer, 0, 40, 0, 135, 0, 0, 0, 0
+    Bottom Layer, 0, 35, 0, 132, 4, 0, 0, 0
+    Mechanical 1, 0, 0, 0, 4, 0, 0, 0, 20
+    Top Designator, 0, 0, 0, 0, 13, 0, 0, 0
+    Bottom Designator, 0, 0, 0, 0, 13, 0, 0, 0
+    Mechanical 13, 1, 0, 0, 24, 0, 0, 0, 8
+    Mechanical 15, 0, 0, 0, 36, 0, 0, 0, 0
+    Multi-Layer, 0, 33, 17, 0, 0, 0, 1, 0
+    Top Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Top Overlay, 16, 0, 0, 97, 52, 0, 0, 0
+    Top Solder, 0, 0, 0, 4, 2, 0, 0, 0
+    Bottom Solder, 0, 0, 0, 4, 4, 0, 0, 0
+    Bottom Overlay, 3, 0, 0, 41, 38, 0, 0, 0
+    Bottom Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Guide, 0, 0, 0, 0, 0, 0, 0, 0
+    Keep-Out Layer, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Drawing, 0, 0, 0, 0, 0, 0, 0, 0
+count : 17
+
+Drill Pairs, Vias
+    Top Layer - Bottom Layer, 17
+count : 1
+
+Layer, Sq.In., Sq.MM., Percent of layer
+    Top Layer, 0.768, 495.297, 34%
+    Bottom Layer, 0.846, 545.703, 38%
+count : 2
+
+Non-Plated Hole Size, Pads, Vias
+count : 0
+
+Plated Hole Size, Pads, Vias
+    0mm, 75, 0
+    0.5mm, 16, 17
+    1.1mm, 10, 0
+    1.2mm, 5, 0
+    3.5mm, 2, 0
+count : 5
+
+Non-Plated Slot Size / Length, Pads
+count : 0
+
+Plated Slot Size / Length, Pads
+count : 0
+
+Non-Plated Square Hole Size, Pads
+count : 0
+
+Plated Square Hole Size, Pads
+count : 0
+
+Top Layer Annular Ring Size, Count
+    -0.5mm, 16
+    0.3mm, 17
+    0.9mm, 10
+    1.3mm, 5
+    1.5mm, 2
+count : 5
+
+Mid Layer Annular Ring Size, Count
+    -0.5mm, 16
+    0.3mm, 17
+    0.9mm, 10
+    1.3mm, 5
+    1.5mm, 2
+count : 5
+
+Bottom Layer Annular Ring Size, Count
+    -0.5mm, 16
+    0.3mm, 17
+    0.9mm, 10
+    1.3mm, 5
+    1.5mm, 2
+count : 5
+
+Pad Solder Mask, Count
+    0.1016mm, 108
+count : 1
+
+Pad Paste Mask, Count
+    0mm, 108
+count : 1
+
+Pad Pwr/Gnd Expansion, Count
+    0.508mm, 108
+count : 1
+
+Pad Relief Conductor Width, Count
+    0.254mm, 108
+count : 1
+
+Pad Relief Air Gap, Count
+    0.254mm, 108
+count : 1
+
+Pad Relief Entries, Count
+    4, 108
+count : 1
+
+Via Solder Mask, Count
+    0.1016mm, 17
+count : 1
+
+Via Pwr/Gnd Expansion, Count
+    0.508mm, 17
+count : 1
+
+Track Width, Count
+    0.05mm, 24
+    0.1mm, 36
+    0.2mm, 19
+    0.254mm, 72
+    0.3mm, 95
+    0.35mm, 49
+    0.5mm, 3
+    0.6mm, 46
+    0.8mm, 4
+    1mm, 83
+    2mm, 46
+count : 11
+
+Arc Line Width, Count
+    0.1mm, 1
+    0.25mm, 5
+    0.254mm, 10
+    0.3mm, 4
+count : 4
+
+Arc Radius, Count
+    0.125mm, 5
+    0.254mm, 2
+    0.284mm, 1
+    0.5mm, 1
+    0.5388mm, 5
+    1.27mm, 4
+    2mm, 2
+count : 7
+
+Arc Degrees, Count
+    54, 2
+    90, 4
+    360, 14
+count : 3
+
+Text Height, Count
+    0.15mm, 20
+    0.3mm, 4
+    0.8mm, 58
+    1mm, 12
+    1.524mm, 32
+count : 5
+
+Text Width, Count
+    0.04mm, 20
+    0.05mm, 4
+    0.18mm, 58
+    0.254mm, 44
+count : 4
+
+Net Track Width, Count
+    0.3mm, 48
+count : 1
+
+Net Via Size, Count
+    0.8mm, 48
+count : 1
