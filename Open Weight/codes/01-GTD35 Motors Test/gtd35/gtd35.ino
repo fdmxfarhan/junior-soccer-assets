@@ -18,7 +18,7 @@ struct Motor {
   float Current;
   float Voltage;
 } GTD35[20];
-
+int speed = 100;
 void init_motors() {
   for (int i = 0; i < 4; i++) {
     GTD35[i].Enable = 1;
@@ -38,7 +38,7 @@ void Motor_SetID(uint8_t PreviousID, uint8_t NewID) {
 }
 void MOTOR_SendData(int length) {
   for (int q = 0; q < length; q++) {
-    Serial.write(MOTOR_TX_Buffer[q]);
+    Serial1.print(MOTOR_TX_Buffer[q]);
     delayMicroseconds(10);
   }
   MOTOR_TxModeF = 1;
@@ -92,27 +92,37 @@ void motor(int zero, int one, int two, int three) {
   MotorMove(4);
 }
 
-
+void moveAngle(int a) {
+  if (a > 360) a -= 360;
+  if (a < 0) a += 360;
+  int x = -speed * cos(a * M_PI / 180);
+  int y = -speed * sin(a * M_PI / 180);
+  motor((x + y), (x - y), (-x - y), (y - x));
+}
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial1.begin(115200);
   pinMode(PC13, OUTPUT);
+  pinMode(PB8, OUTPUT);
+  digitalWrite(PB8, 1);
   init_motors();
   delay(1000);
-}
-
-void loop() {
   digitalWrite(PC13, 1);
   delay(100);
   digitalWrite(PC13, 0);
   delay(100);
-  // put your main code here, to run repeatedly:
-  // Motor_SetID(0, 1);
-  // motor(100, 100, 100, 100);
-  GTD35[0].Enable = 1;
-  GTD35[0].RefRPM = 100;
-  GTD35[0].Refball_angle = 400;
-  MotorMove(1);
+  // for(int i=0; i<255; i++) Motor_SetID(i, 1);
+}
 
+void loop() {
+  // put your main code here, to run repeatedly:
+  for(int i=0; i <360; i++) {
+    moveAngle(i);
+    delay(10);
+  } 
+  // GTD35[0].Enable = 1;
+  // GTD35[0].RefRPM = 100;
+  // GTD35[0].Refball_angle = 400;
+  // MotorMove(1);
 }
