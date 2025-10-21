@@ -17,7 +17,7 @@ void setup() {
 
 void loop() {
   digitalWrite(PA4, 1);
-  delay(1);
+  // delay(1);
   for(int i=0; i<8; i++){
     digitalWrite(PB1, (i/4) % 2);
     digitalWrite(PA7, (i/2) % 2);
@@ -35,8 +35,8 @@ void loop() {
     pulse = pulseIn(PA1, LOW, 5000);
     i2cBuffer[8+i] = pulse;
   }
-  digitalWrite(PA4, 0);
-  delay(1);
+  // digitalWrite(PA4, 0);
+  // delay(1);
 
 }
 
