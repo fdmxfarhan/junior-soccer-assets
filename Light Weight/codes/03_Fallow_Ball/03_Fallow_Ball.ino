@@ -9,8 +9,14 @@ TDAxis12 gyro(&i2c, 0x10);
 
 float ball_angle;
 float robot_angle;
-int speed = 20000;
+int speed = 40000;
+bool use_gyro = true;
 void motor(int ML1, int ML2, int MR2, int MR1){
+  ML1 += robot_angle*400;
+  ML2 += robot_angle*400;
+  MR2 += robot_angle*400;
+  MR1 += robot_angle*400;
+
   if(ML1 > 65535) ML1 = 65535;
   if(ML1 <-65535) ML1 =-65535;
   if(ML2 > 65535) ML2 = 65535;
@@ -56,7 +62,29 @@ void motor(int ML1, int ML2, int MR2, int MR1){
     pwmWrite(PB6, 65525 + MR1);
   }
 }
-
+void moveAngle(int a) {
+  if (a > 360) a -= 360;
+  if (a < 0) a += 360;
+  int x = speed * cos(a * M_PI / 180);
+  int y = speed * sin(a * M_PI / 180);
+  motor((x + y), (x - y), (-x - y), (y - x));
+}
+void moveXY(float Vx, float Vy, float w) {
+  int speed_x = 2;
+  int speed_y = 2;
+  int speed_w = 2;
+  int Vl1 =  Vx * speed_x + Vy * speed_y + w * speed_w;
+  int Vl2 = -Vx * speed_x + Vy * speed_y + w * speed_w;
+  int Vr2 = -Vx * speed_x - Vy * speed_y + w * speed_w;
+  int Vr1 =  Vx * speed_x - Vy * speed_y + w * speed_w;
+  motor(Vl1, Vl2, Vr2, Vr1);
+}
+void spin(bool state){
+  digitalWrite(PC14, state);
+}
+void stop(){
+  motor(0, 0, 0, 0);
+}
 void setup() {
   // Serial.begin(115200);
   pinMode(PB12, OUTPUT);
@@ -74,6 +102,8 @@ void setup() {
   display.setTextSize(1);
   display.display();
   i2c.begin();  // Join I2C bus as master
+  pinMode(PA8, PWM);
+  pwmWrite(PA8, 3000);
 }
 
 void loop() {
@@ -85,6 +115,13 @@ void loop() {
   if(TSOP.is_ball) display.fillCircle(65 + 25 * sin(radians(ball_angle)), 32 - 25 * cos(radians(ball_angle)), 2, WHITE);
   display.drawLine(65 + 15 * sin(radians(robot_angle)), 32 - 15 * cos(radians(robot_angle)), 65 - 15 * sin(radians(robot_angle)), 32 + 15 * cos(radians(robot_angle)), WHITE);
   display.display();
-  motor(robot_angle*300, robot_angle*300, robot_angle*300, robot_angle*300);
-
+  if(TSOP.is_ball){
+    moveAngle(ball_angle);
+    // if(ball_angle < 20 && ball_angle > 340) moveAngle(ball_angle);
+    // else if(ball_angle < 180) moveAngle(ball_angle + 90);
+    // else moveAngle(ball_angle - 90);
+  }
+  else{
+    stop();
+  }
 }
