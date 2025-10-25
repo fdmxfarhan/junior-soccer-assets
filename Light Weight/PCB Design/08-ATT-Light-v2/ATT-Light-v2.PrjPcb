@@ -72,7 +72,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=0
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -81,6 +81,10 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=USTBWYYN
+
+[GeneratedDocument1]
+DocumentPath=ATT-Light-v2 10-24-2025 6-37-01 PM.WAS
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources
