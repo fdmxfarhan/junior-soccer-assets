@@ -31,14 +31,16 @@ void loop() {
     sensors[i] = pulseIn(PA0, LOW, 5000);
     sensors[i+8] = pulseIn(PA1, LOW, 5000);
     digitalWrite(PB15, 0);
-    delay(1);
+    delay(2);
   }
   float sumX = 0, sumY = 0;
   bool is_ball = false;
   for(int i=0; i<16; i++){
     if(sensors[i] > 50) {
-      sensors[i] = 1;
+      // sensors[i] = 1;
       is_ball = true;
+    }else{
+      // sensors[i] = 0;
     }
     float angleDeg = i * 22.5;
     sumX += sensors[i] * cos(radians(angleDeg));
