@@ -33,6 +33,7 @@ void loop() {
     digitalWrite(PB15, 0);
     delay(2);
   }
+  digitalWrite(PC13, 1);
   float sumX = 0, sumY = 0;
   bool is_ball = false;
   for(int i=0; i<16; i++){
