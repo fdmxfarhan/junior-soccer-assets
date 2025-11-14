@@ -1,8 +1,7 @@
 #include <Wire_slave.h>
 #define I2C_ADDRESS 0x09  
 uint8_t i2cBuffer[3];
-uint8_t i2cBufferAll[16];
-int sensors[16];
+uint8_t sensors[16];
 uint8_t pulse = 0;
 
 void setup() {
@@ -25,7 +24,6 @@ void setup() {
 void loop() {
   for(int i=0; i<8; i++){
     digitalWrite(PB15, 1);
-    digitalWrite(PC13, 1);
     delay(1);
     digitalWrite(PB14, (i/4)%2);
     digitalWrite(PB13, (i/2)%2);
@@ -33,12 +31,9 @@ void loop() {
     sensors[i] = pulseIn(PA0, LOW, 5000);
     sensors[i+8] = pulseIn(PA1, LOW, 5000);
     digitalWrite(PB15, 0);
-    digitalWrite(PC13, 0);
-    delay(1);
+    delay(2);
   }
-  // for(int i=0; i<16; i++){
-  //   i2cBufferAll[i] = sensors[i]/10;
-  // }
+  digitalWrite(PC13, 1);
   float sumX = 0, sumY = 0;
   bool is_ball = false;
   for(int i=0; i<16; i++){
@@ -69,5 +64,4 @@ void loop() {
 
 void onRequest() {
   Wire1.write(i2cBuffer, 3);
-  // Wire1.write(i2cBufferAll, 16);
 }
