@@ -25,7 +25,7 @@ void setup() {
 void loop() {
   for(int i=0; i<8; i++){
     digitalWrite(PB15, 1);
-    digitalWrite(PC13, 1);
+    //digitalWrite(PC13, 1);
     delay(1);
     digitalWrite(PB14, (i/4)%2);
     digitalWrite(PB13, (i/2)%2);
