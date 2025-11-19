@@ -96,6 +96,9 @@ void setup() {
   pinMode(PB7, PWM);
   pinMode(PB8, PWM);
   pinMode(PB9, PWM);
+
+  pinMode(PC15, OUTPUT);
+  pinMode(PC14, OUTPUT);
   motor(0, 0, 0, 0);
   display.begin(0x3c);
   display.setTextColor(WHITE);
@@ -107,6 +110,8 @@ void setup() {
 }
 
 void loop() {
+  digitalWrite(PC15, digitalRead(PA12)); 
+  digitalWrite(PC14, digitalRead(PA11)); 
   ball_angle = TSOP.read();
   robot_angle = gyro.read();
   display.clearDisplay();
