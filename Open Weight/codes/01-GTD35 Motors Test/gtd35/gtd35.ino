@@ -112,7 +112,7 @@ void setup() {
   delay(100);
   digitalWrite(PC13, 0);
   delay(100);
-  // for(int i=0; i<255; i++) Motor_SetID(i, 1);
+  for(int i=0; i<255; i++) Motor_SetID(i, 3);
 }
 
 void loop() {

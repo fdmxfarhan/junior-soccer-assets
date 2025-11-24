@@ -32,14 +32,36 @@ void loop() {
     buffer2[index] = i2c.read();
     index++;
   }
+  i2c.requestFrom(0x22, READ_LEN);
+  index = 0;
+  uint8_t buffer3[READ_LEN];
+  while (i2c.available() && index < READ_LEN) {
+    buffer3[index] = i2c.read();
+    index++;
+  }
+  i2c.requestFrom(0x23, READ_LEN);
+  index = 0;
+  uint8_t buffer4[READ_LEN];
+  while (i2c.available() && index < READ_LEN) {
+    buffer4[index] = i2c.read();
+    index++;
+  }
   display.clearDisplay();
   for(int i=0; i<READ_LEN; i++){
     display.setCursor(0, i*8);
     display.println(buffer[i]);
   }
   for(int i=0; i<READ_LEN; i++){
-    display.setCursor(64, i*8);
+    display.setCursor(30, i*8);
     display.println(buffer2[i]);
+  }
+  for(int i=0; i<READ_LEN; i++){
+    display.setCursor(60, i*8);
+    display.println(buffer3[i]);
+  }
+  for(int i=0; i<READ_LEN; i++){
+    display.setCursor(90, i*8);
+    display.println(buffer4[i]);
   }
   // for(int i=0; i<8; i++){
   //   display.setCursor(64, i*8);

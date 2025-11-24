@@ -21,4 +21,5 @@ void HS0038::read() {
         angle = ((data[0] << 8) | data[1])/100.0;
         distance = data[2];
     }
+    while (_wire->available()) data[index] = _wire->read();
 }
