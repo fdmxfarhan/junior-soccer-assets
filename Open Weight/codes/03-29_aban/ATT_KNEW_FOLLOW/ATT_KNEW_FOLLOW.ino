@@ -87,7 +87,7 @@ void loop() {
   robot_angle = gy.read();
   print_all();
   read_MV();
-  if(robot_id == 1)read_pixy();
+  if(robot_id == 1) read_pixy();
   sensor();
   shoot_init(2500);
 
