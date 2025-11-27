@@ -1,6 +1,8 @@
 #include <Wire.h>
 // #define I2C_ADDRESS 0x20 // Left
-#define I2C_ADDRESS 0x21 // Right
+// #define I2C_ADDRESS 0x21 // Right
+// #define I2C_ADDRESS 0x22 // Front
+#define I2C_ADDRESS 0x23 // Back
 int16_t sensor[4];
 uint16_t sensor_offset[4];
 uint8_t i2c_buffer[5];

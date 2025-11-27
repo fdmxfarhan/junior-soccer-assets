@@ -36,17 +36,14 @@ void loop() {
     digitalWrite(PC13, 0);
     delay(1);
   }
-  // for(int i=0; i<16; i++){
+  // for(int i=0;  i<16; i++){
   //   i2cBufferAll[i] = sensors[i]/10;
   // }
   float sumX = 0, sumY = 0;
   bool is_ball = false;
   for(int i=0; i<16; i++){
     if(sensors[i] > 50) {
-      // sensors[i] = 1;
       is_ball = true;
-    }else{
-      // sensors[i] = 0;
     }
     float angleDeg = i * 22.5;
     sumX += sensors[i] * cos(radians(angleDeg));
@@ -64,7 +61,6 @@ void loop() {
     i2cBuffer[1] = angle_byte & 0xFF;
     i2cBuffer[2] = sqrt(pow(sumX, 2) + pow(sumY, 2))/10.0;
   }
-  
 }
 
 void onRequest() {
