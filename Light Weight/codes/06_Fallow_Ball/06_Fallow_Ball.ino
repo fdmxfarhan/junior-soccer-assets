@@ -13,6 +13,7 @@ float robot_angle;
 int speed = 55000;
 bool use_gyro = true;
 int shl, shr, shb, dif;
+int Vcap;
 void motor(int ML1, int ML2, int MR2, int MR1) {
   ML1 += robot_angle * 400;
   ML2 += robot_angle * 400;
@@ -102,6 +103,7 @@ void stop() {
   motor(0, 0, 0, 0);
 }
 void update_all() {
+  digitalWrite(PC15, digitalRead(PA12));
   robot_angle = gyro.read();
   HS0038.read();
   LDR.read();
@@ -109,6 +111,7 @@ void update_all() {
   shb = analogRead(PA1);
   shr = analogRead(PA2);
   dif = shr - shl;
+  Vcap = analogRead(PB0);
   display.clearDisplay();
   display.setCursor(0, 0);
 
@@ -117,6 +120,7 @@ void update_all() {
   display.println(shl);
   display.println(shb);
   display.println(shr);
+  display.println(Vcap);
   display.drawCircle(64, 32, 20, WHITE);
   if (HS0038.is_ball) display.fillCircle(65 + 25 * sin(radians(HS0038.angle)), 32 - 25 * cos(radians(HS0038.angle)), 2, WHITE);
   if (LDR.right) display.fillRoundRect(70, 30, 10, 4, 2, WHITE);
@@ -180,6 +184,10 @@ void setup() {
   pinMode(PA8, PWM);
   pwmWrite(PA8, 3000);
   pinMode(PA3, INPUT_PULLUP);
+  pinMode(PC14, OUTPUT);
+  pinMode(PC15, OUTPUT);
+  pinMode(PA8, PWM);
+  pwmWrite(PA8, 30000);
 }
 void loop() {
   update_all();
