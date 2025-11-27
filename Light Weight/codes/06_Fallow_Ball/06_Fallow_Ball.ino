@@ -73,11 +73,11 @@ void moveAngle(int a, int v) {
   int y = v * sin(a * M_PI / 180);
   motor((x + y), (x - y), (-x - y), (y - x));
 }
-void moveInside(){
-  if(LDR.front) moveAngle(180, 30000);
-  else if(LDR.back) moveAngle(0, 30000);
-  else if(LDR.right) moveAngle(270, 30000);
-  else if(LDR.left) moveAngle(90, 30000);
+void moveInside() {
+  if (LDR.front) moveAngle(180, 30000);
+  else if (LDR.back) moveAngle(0, 30000);
+  else if (LDR.right) moveAngle(270, 30000);
+  else if (LDR.left) moveAngle(90, 30000);
   else stop();
 }
 void moveForSec(int a, int duration) {
@@ -134,34 +134,69 @@ void out() {
   if (LDR.left) {
     moveForSec(90, 9);
     float out_ball_angle = HS0038.angle;
-    while (HS0038.angle > 190 && HS0038.angle < 350 && HS0038.is_ball) {
-      update_all();
-      moveInside();
-    }
+    // while (HS0038.angle > 190 && HS0038.angle < 350 && HS0038.is_ball) {
+    //   update_all();
+    //   moveInside();
+    // }
   }
   if (LDR.right) {
     moveForSec(270, 9);
     float out_ball_angle = HS0038.angle;
-    while (HS0038.angle > 10 && HS0038.angle < 170 && HS0038.is_ball) {
-      update_all();
-      moveInside();
-    }
+    // while (HS0038.angle > 10 && HS0038.angle < 170 && HS0038.is_ball) {
+    //   update_all();
+    //   moveInside();
+    // }
   }
   if (LDR.front) {
     moveForSec(180, 9);
     float out_ball_angle = HS0038.angle;
-    while ((HS0038.angle > 270 || HS0038.angle < 90) && HS0038.is_ball) {
-      update_all();
-      moveInside();
-    }
+    // while ((HS0038.angle > 270 || HS0038.angle < 90) && HS0038.is_ball) {
+    //   update_all();
+    //   moveInside();
+    // }
   }
   if (LDR.back) {
     moveForSec(0, 9);
     float out_ball_angle = HS0038.angle;
-    while ((HS0038.angle > 90 && HS0038.angle < 270) && HS0038.is_ball) {
-      update_all();
-      moveInside();
+    // while ((HS0038.angle > 90 && HS0038.angle < 270) && HS0038.is_ball) {
+    //   update_all();
+    //   moveInside();
+    // }
+  }
+}
+void shift(){
+  if (HS0038.distance < 30) moveAngle(HS0038.angle, 50000);
+  else if (HS0038.angle < 25 || HS0038.angle > 335) moveAngle(HS0038.angle, 40000);
+  else if (HS0038.angle < 50) moveAngle(HS0038.angle + 20, 40000);
+  else if (HS0038.angle < 180) moveAngle(HS0038.angle + 70, 40000);
+  else if (HS0038.angle < 310) moveAngle(HS0038.angle - 70, 40000);
+  else moveAngle(HS0038.angle - 20, 40000);
+}
+void Forward_AI() {
+  if (!digitalRead(PA3)) {
+    moveAngle(0, MAX_SPEED);
+  } else if (HS0038.is_ball) {
+    shift();
+  } else {
+    if (shb < 1000) motor(dif * 10 - 30000, -dif * 10 - 30000, -dif * 10 + 30000, dif * 10 + 30000);
+    else motor(dif * 10, -dif * 10, -dif * 10, dif * 10);
+  }
+}
+void GoalKeeper_AI(){
+  if (!digitalRead(PA3)) {
+    moveAngle(0, MAX_SPEED);
+  } else if (HS0038.is_ball) {
+    if(HS0038.angle > 60 && HS0038.angle < 300) shift();
+    else if(HS0038.distance > 70) moveAngle(HS0038.angle, 30000);
+    else{
+      float ball_x = sin(radians(HS0038.angle)) * 50000;
+      if(ball_x >= 0 && ball_x < 30000) ball_x = 30000;
+      if(ball_x < 0 && ball_x >-30000) ball_x =-30000;
+      motor(ball_x, -ball_x, -ball_x, ball_x);
     }
+  } else {
+    if (shb < 1000) motor(dif * 10 - 30000, -dif * 10 - 30000, -dif * 10 + 30000, dif * 10 + 30000);
+    else motor(dif * 10, -dif * 10, -dif * 10, dif * 10);
   }
 }
 void setup() {
@@ -192,19 +227,9 @@ void setup() {
 void loop() {
   update_all();
   out();
-  if(!digitalRead(PA3)){
-    moveAngle(0, MAX_SPEED);
-  }
-  else if (HS0038.is_ball) {
-    // moveAngle(HS0038.angle);
-    if (HS0038.distance < 30) moveAngle(HS0038.angle, 50000);
-    else if (HS0038.angle < 25 || HS0038.angle > 335) moveAngle(HS0038.angle, 40000);
-    else if (HS0038.angle < 50) moveAngle(HS0038.angle + 20, 40000);
-    else if (HS0038.angle < 180) moveAngle(HS0038.angle + 70, 40000);
-    else if (HS0038.angle < 310) moveAngle(HS0038.angle - 70, 40000);
-    else moveAngle(HS0038.angle - 20, 40000);
-  } else {
-    if(shb < 1000) motor(dif * 10 - 30000, -dif * 10 - 30000, -dif * 10 + 30000, dif * 10 + 30000);
-    else motor(dif * 10, -dif * 10, -dif * 10, dif * 10);
+  if(digitalRead(PA11)){
+    Forward_AI();
+  }else{
+    GoalKeeper_AI();
   }
 }

@@ -31,7 +31,7 @@ int robot_y_pixy_1 = 250;
 ///////////////////////////////////////////// ROBOT 2
 int robot_x_2 = 159;  // OpenMV
 int robot_y_2 = 100;  // OpenMV
-int robot_x_pixy_2 = 148;  
+int robot_x_pixy_2 = 155;  
 int robot_y_pixy_2 = 250;
 
 int robot_x;  ////172
@@ -87,9 +87,9 @@ void loop() {
   robot_angle = gy.read();
   print_all();
   read_MV();
-  if(robot_id == 1) read_pixy();
+  read_pixy();
   sensor();
-  shoot_init(2500);
+  shoot_init(2000);
 
   if (digitalRead(PA12) == 1) {
     Rotate_Move_AI();
