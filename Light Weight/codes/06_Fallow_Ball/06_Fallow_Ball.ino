@@ -187,7 +187,7 @@ void setup() {
   pinMode(PC14, OUTPUT);
   pinMode(PC15, OUTPUT);
   pinMode(PA8, PWM);
-  pwmWrite(PA8, 30000);
+  pwmWrite(PA8, 2000);
 }
 void loop() {
   update_all();
