@@ -2,11 +2,12 @@
 #include <TDAxis12.h>
 #include <Adafruit_SH1106_STM32.h>
 #include <PixyI2C.h>
+#define Ball_In_Kicker digitalRead(PA3)
+#define Team_Yellow digitalRead(PA11)
 Adafruit_SH1106 display(-1);
 TwoWire i2c(2, I2C_FAST_MODE);
 TDAxis12 gy(&i2c, 0x10);
 PixyI2C pixy;
-
 int speed = 390;
 float ball_x;
 float ball_y;
@@ -17,15 +18,24 @@ float v_pixy = 1;
 float v_gardesh = 1.59;
 float v_gardesh_pixy = 1;
 bool TDAxis_enable = false;
+bool TDAxis_reverse = false;
 bool is_yellow;
+bool is_blue;
+bool is_goal;
 int primery_speed = 300;
 float robot_angle;
 float yellow_angle;
 float yellow_x;
 float yellow_y;
+float blue_angle;
+float blue_x;
+float blue_y;
+float goal_angle;
+float goal_x;
+float goal_y;
 ///////////////////////////////////////////// ROBOT 1
-int robot_x_1 = 172;  // OpenMV
-int robot_y_1 = 113;  // OpenMV
+int robot_x_1 = 120;  // OpenMV
+int robot_y_1 = 100;  // OpenMV
 int robot_x_pixy_1 = 148;  
 int robot_y_pixy_1 = 250;
 ///////////////////////////////////////////// ROBOT 2
@@ -48,6 +58,8 @@ int b = 90;
 int mode = 0;
 int shl, shb, shr, d;
 uint8_t robot_id;
+int cap;
+
 float turn(int main_rpm, int moment_rpm) {
   float left_right_angle = (60 / (moment_rpm / main_rpm));
 }
@@ -59,6 +71,7 @@ void setup() {
   pinMode(PC14, OUTPUT);  ///////spiner
   pinMode(PC15, OUTPUT);  ////SHOOT_RELAY
   pinMode(PB9, PWM);      /////SHOOT_Mosfet
+  shoot_init(0);
   robot_id = digitalRead(PA15) + 1;
   if(robot_id == 1){
     robot_x = robot_x_1;
@@ -89,7 +102,7 @@ void loop() {
   read_MV();
   read_pixy();
   sensor();
-  shoot_init(2000);
+  shoot_init(500);
 
   if (digitalRead(PA12) == 1) {
     Rotate_Move_AI();

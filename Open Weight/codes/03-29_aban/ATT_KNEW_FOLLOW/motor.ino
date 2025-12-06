@@ -1,9 +1,14 @@
 void motor(int L1, int L2, int R2, int R1) {
   if (TDAxis_enable == true) {
-    L1 -= robot_angle * 2;
-    L2 -= robot_angle * 2;
-    R2 -= robot_angle * 2;
-    R1 -= robot_angle * 2;
+    float correction = robot_angle;
+    if(TDAxis_reverse){
+      if(correction <= 0) correction += 180;
+      else correction -= 180;
+    }
+    L1 -= correction * 2;
+    L2 -= correction * 2;
+    R2 -= correction * 2;
+    R1 -= correction * 2;
   }
   int16_t speeds[4] = { L1, L2, R2, R1 };
   char data[100];

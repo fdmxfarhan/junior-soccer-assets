@@ -19,6 +19,10 @@ void print_all() {
     display.println(ball_y_pixy);
     display.print("BAP: ");
     display.println(ball_angle_pixy);
+    display.print("ID: ");
+    display.println(robot_id);
+    display.print("goal: ");
+    display.println(Team_Yellow ? "Yellow" : "Blue");
   } else if (mode == 1) {
     display.setCursor(0, 0);
     display.setTextSize(2);
@@ -42,6 +46,8 @@ void print_all() {
     display.println(shr);
     display.print("TDAxis: ");
     display.println(robot_angle);
+    display.print("cap: ");
+    display.println(cap);
   }
   display.display();
 }

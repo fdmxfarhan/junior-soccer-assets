@@ -8,28 +8,27 @@ void stop() {
   motor(0, 0, 0, 0);
 }
 void goal() {
+  // shoot();
   digitalWrite(PC14, 1);
-  if (robot_id == 2) {
-    TDAxis_enable = true;
-
-    shoot();
-  } else if (is_yellow == true) {
-    motor((yellow_x - robot_x + yellow_y - robot_y) * v / 4 + (-yellow_angle),
-          (-yellow_x + robot_x + yellow_y - robot_y) * v / 4 + (-yellow_angle),
-          (-yellow_x + robot_x + -yellow_y + robot_y) * v / 4 + (-yellow_angle),
-          (yellow_x - robot_x + -yellow_y + robot_y) * v / 4 + (-yellow_angle));
-    if (yellow_angle > -10 && yellow_angle < 10) {
+  if (is_goal == true) {
+    TDAxis_enable = false;
+    motor((goal_x - robot_x + goal_y - robot_y) * v/10 + (-goal_angle * v_gardesh),
+          (-goal_x + robot_x + goal_y - robot_y) * v/10 + (-goal_angle * v_gardesh),
+          (-goal_x + robot_x + -goal_y + robot_y) * v/10 + (-goal_angle * v_gardesh),
+          (goal_x - robot_x + -goal_y + robot_y) * v/10 + (-goal_angle * v_gardesh));
+    if (goal_angle >= -10 && goal_angle <= 10) {
       shoot();
     }
   } else {
-    TDAxis_enable = true;
-    move_angle(0);
-    //motor(-yellow_angle * v_gardesh , -yellow_abgle * v_gardesh , -yellow_angle * v_gardesh , -yellow_angle * v_gardesh)
+    // TDAxis_enable = true;
+    TDAxis_reverse = true;
+    // move_angle(0);
+    stop();
   }
 }
 void No_Rotate_AI() {
-  float rotate = turn(primery_speed, speed);
-  if (digitalRead(PA3) == 1) {
+  TDAxis_reverse = false;
+  if (Ball_In_Kicker) {
     goal();
   } else if (is_ball_pixy) {
     digitalWrite(PC14, 1);
@@ -44,7 +43,8 @@ void No_Rotate_AI() {
   }
 }
 void Rotate_Move_AI() {
-  if (digitalRead(PA3) == 1) {
+  TDAxis_reverse = false;
+  if (Ball_In_Kicker) {
     goal();
   } else if (is_ball_pixy) {
     digitalWrite(PC14, 1);
@@ -74,12 +74,12 @@ void Rotate_Move_AI() {
   }
 }
 void comeBack() {
-  // stop();
-  if (shb < 400) {
-    motor(-200 + d, -200 - d, 200 - d, 200 + d);
-  } else if (shb > 600) {
-    motor(200 + d, 200 - d, -200 - d, -200 + d);
-  } else {
-    motor(d, -d, -d, d);
-  }
+  stop();
+  // if (shb < 400) {
+  //   motor(-200 + d, -200 - d, 200 - d, 200 + d);
+  // } else if (shb > 600) {
+  //   motor(200 + d, 200 - d, -200 - d, -200 + d);
+  // } else {
+  //   motor(d, -d, -d, d);
+  // }
 }

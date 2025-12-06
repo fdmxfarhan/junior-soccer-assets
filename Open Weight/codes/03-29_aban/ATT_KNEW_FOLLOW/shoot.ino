@@ -1,13 +1,14 @@
+int shoot_cnt = 0;
 void shoot_init(int pwm) {
-  int cap = analogRead(PB0);
+  cap = analogRead(PB0);
   if (robot_id == 1) {
-    if (cap < 1399) {
+    if (cap < 1400) {
       pwmWrite(PB9, pwm);
     }
-    if (cap > 1599) {
+    if (cap > 1500) {
       pwmWrite(PB9, 0);
     }
-  }else{
+  } else {
     if (cap < 600) {
       pwmWrite(PB9, pwm);
     }
@@ -17,8 +18,10 @@ void shoot_init(int pwm) {
   }
 }
 void shoot() {
-  digitalWrite(PC15, 1);
-  delay(25);
-  digitalWrite(PC15, 0);
-  delay(25);
+  if (Ball_In_Kicker) {
+    digitalWrite(PC15, 1);
+    delay(25);
+    digitalWrite(PC15, 0);
+    delay(25);
+  }
 }
