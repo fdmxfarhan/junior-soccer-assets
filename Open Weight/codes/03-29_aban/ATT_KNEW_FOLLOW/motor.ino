@@ -43,3 +43,8 @@ void move_angle(int input_angle) {
   int y = -speed * sin(radians(input_angle));
   motor(x + y, x - y, -x - y, y - x);
 }
+void move_angle_speed(int input_angle, int sp) {
+  int x = -sp * cos(radians(input_angle));  /////////////////// X of angle
+  int y = -sp * sin(radians(input_angle));
+  motor(x + y, x - y, -x - y, y - x);
+}

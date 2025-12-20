@@ -36,6 +36,8 @@ void print_all() {
     display.println(ball_y);
     display.print("BA: ");
     display.println(ball_angle);
+    display.print("GA: ");
+    display.println(goal_angle);
   } else if (mode == 2) {
     display.setCursor(0, 25);
     display.print("SHL: ");

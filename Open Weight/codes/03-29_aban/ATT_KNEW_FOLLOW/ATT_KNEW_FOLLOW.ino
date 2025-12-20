@@ -13,10 +13,14 @@ float ball_x;
 float ball_y;
 float ball_x_pixy;
 float ball_y_pixy;
+
+
 float v = 2.5;
-float v_pixy = 1;
-float v_gardesh = 1.59;
-float v_gardesh_pixy = 1;
+float v_pixy = 2;
+float v_gardesh = 1.7;
+float v_gardesh_pixy = 1.7;
+
+
 bool TDAxis_enable = false;
 bool TDAxis_reverse = false;
 bool is_yellow;
@@ -39,9 +43,9 @@ int robot_y_1 = 100;  // OpenMV
 int robot_x_pixy_1 = 148;  
 int robot_y_pixy_1 = 250;
 ///////////////////////////////////////////// ROBOT 2
-int robot_x_2 = 159;  // OpenMV
+int robot_x_2 = 100;  // OpenMV
 int robot_y_2 = 100;  // OpenMV
-int robot_x_pixy_2 = 155;  
+int robot_x_pixy_2 = 160;  
 int robot_y_pixy_2 = 250;
 
 int robot_x;  ////172
@@ -59,7 +63,7 @@ int mode = 0;
 int shl, shb, shr, d;
 uint8_t robot_id;
 int cap;
-
+int Ball_in_Kicker_Timer = 0;
 float turn(int main_rpm, int moment_rpm) {
   float left_right_angle = (60 / (moment_rpm / main_rpm));
 }

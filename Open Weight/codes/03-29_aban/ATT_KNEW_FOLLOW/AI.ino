@@ -10,20 +10,24 @@ void stop() {
 void goal() {
   // shoot();
   digitalWrite(PC14, 1);
-  if (is_goal == true) {
+  if (Ball_in_Kicker_Timer > 30) {
+    shoot();
+    Ball_in_Kicker_Timer = 0;
+  } else if (is_goal == true) {
     TDAxis_enable = false;
-    motor((goal_x - robot_x + goal_y - robot_y) * v/10 + (-goal_angle * v_gardesh),
-          (-goal_x + robot_x + goal_y - robot_y) * v/10 + (-goal_angle * v_gardesh),
-          (-goal_x + robot_x + -goal_y + robot_y) * v/10 + (-goal_angle * v_gardesh),
-          (goal_x - robot_x + -goal_y + robot_y) * v/10 + (-goal_angle * v_gardesh));
+    motor((goal_x - robot_x + goal_y - robot_y) * v / 10 + (-goal_angle * v_gardesh),
+          (-goal_x + robot_x + goal_y - robot_y) * v / 10 + (-goal_angle * v_gardesh),
+          (-goal_x + robot_x + -goal_y + robot_y) * v / 10 + (-goal_angle * v_gardesh),
+          (goal_x - robot_x + -goal_y + robot_y) * v / 10 + (-goal_angle * v_gardesh));
     if (goal_angle >= -10 && goal_angle <= 10) {
       shoot();
     }
   } else {
-    // TDAxis_enable = true;
-    TDAxis_reverse = true;
-    // move_angle(0);
-    stop();
+    TDAxis_enable = true;
+    // TDAxis_reverse = true;
+    // move_angle_speed(180, 100);
+    motor(-100 + d * 2, -100 - d * 2, 100 - d * 2, 100 + d * 2);
+    // stop();
   }
 }
 void No_Rotate_AI() {
@@ -74,12 +78,22 @@ void Rotate_Move_AI() {
   }
 }
 void comeBack() {
-  stop();
-  // if (shb < 400) {
-  //   motor(-200 + d, -200 - d, 200 - d, 200 + d);
-  // } else if (shb > 600) {
-  //   motor(200 + d, 200 - d, -200 - d, -200 + d);
-  // } else {
-  //   motor(d, -d, -d, d);
-  // }
+  // stop();
+  if (robot_id == 2) {
+    if (shb < 400) {
+      motor(-200 + d, -200 - d, 200 - d, 200 + d);
+    } else if (shb > 600) {
+      motor(200 + d, 200 - d, -200 - d, -200 + d);
+    } else {
+      motor(d, -d, -d, d);
+    }
+  } else {
+    if (shb < 600) {
+      motor(-200 + d, -200 - d, 200 - d, 200 + d);
+    } else if (shb > 800) {
+      motor(200 + d, 200 - d, -200 - d, -200 + d);
+    } else {
+      motor(d, -d, -d, d);
+    }
+  }
 }

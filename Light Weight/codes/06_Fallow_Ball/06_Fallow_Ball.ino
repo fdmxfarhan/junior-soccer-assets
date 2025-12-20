@@ -112,7 +112,7 @@ void update_all() {
   shr = analogRead(PA2);
   dif = shr - shl;
   Vcap = analogRead(PB0);
-  display.clearDisplay();
+  d```````````````````````````````````isplay.clearDisplay();
   display.setCursor(0, 0);
 
   display.print("D: ");
