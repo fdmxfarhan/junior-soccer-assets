@@ -3,8 +3,8 @@ void update_all() {
   digitalWrite(PC15, digitalRead(PA12));
   robot_angle = gyro.read();
   boost_voltage();
+  read_MV();
   print_all();
-
   if (Serial1.available() > 0) {
     rx_data = Serial1.read();
     if (rx_data == 'F') {
@@ -56,9 +56,7 @@ void update_all() {
       vr1 = -speed;
     }
     if (rx_data == 'X') {
-      digitalWrite(PC15, 1);
-      delay(30);
-      digitalWrite(PC15, 0);
+      shoot();
     }
     if (rx_data == 'S') {
       vl1 = 0;
