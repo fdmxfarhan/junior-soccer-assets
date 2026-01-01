@@ -1,0 +1,494 @@
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .content {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .top-video {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 2vw;
+        display: block;
+    }
+
+    h1.title {
+        color: rgb(14, 66, 168);
+        text-align: right;
+        direction: rtl;
+        font-size: 27px;
+    }
+
+    h1.center-title {
+        color: rgb(14, 66, 168);
+        text-align: center;
+        direction: rtl;
+        font-size: 27px;
+    }
+
+    .text-info h2,
+    .text-info h3 {
+        color: rgb(47, 107, 228);
+        text-align: right;
+        direction: rtl;
+        font-size: 20px;
+    }
+
+    p {
+        color: rgb(30, 38, 58);
+        text-align: justify;
+        direction: rtl;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: normal;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    a.button {
+        flex: 1;
+        align-self: center;
+        margin: 0 1vw;
+        background-color: rgb(3, 23, 53);
+        padding: 15px 20px;
+        width: fit-content;
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a.button:hover {
+        background-color: green;
+    }
+
+    .dual-content {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .dual-content .image {
+        flex: 1;
+    }
+
+    .dual-content .text-info {
+        flex: 1;
+        margin-left: 40px;
+    }
+
+    .dual-content .image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    p.note {
+        color: rgb(255, 0, 93);
+        font-weight: bold;
+    }
+
+    .tutorial {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border: rgb(3, 23, 53) 2px solid;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .tabs-view {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .content-tab {
+        flex: 3;
+    }
+
+    .space {
+        width: 5%;
+    }
+
+    .content-tab video {
+        width: 100%;
+    }
+
+    .tab-btn {
+        padding: 20px 20px;
+        border-bottom: lightgray 1px solid;
+        cursor: pointer;
+    }
+
+    .tab-btn:hover {
+        background-color: rgb(156, 156, 156);
+    }
+
+    .tab-btn.active {
+        font-weight: bold;
+        color: white;
+        background-color: rgb(3, 23, 53);
+    }
+
+    li {
+        color: rgb(30, 38, 58);
+        text-align: justify;
+        direction: rtl;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: normal;
+    }
+
+    .text-info.big {
+        flex: 2;
+    }
+
+    .cards-view {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* center cards horizontally */
+        gap: 24px;
+    }
+
+    .card {
+        width: 25%;
+        min-width: 250px;
+        border: 1px solid lightgray;
+        border-radius: 20px;
+        background-color: #1e88e5;
+        color: white;
+        padding: 20px;
+        min-height: 250px;
+
+        /* center content inside card */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* vertical centering */
+        align-items: center;
+        /* horizontal centering */
+
+        text-align: center;
+    }
+
+    .card h1 {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: white;
+        font-size: 17px;
+        margin: 0;
+    }
+
+    .score-table {
+        width: 100%;
+        max-width: 700px;
+        margin: 40px auto;
+        border-collapse: collapse;
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .score-table thead {
+        background-color: #1e88e5;
+        color: #fff;
+    }
+
+    .score-table th,
+    .score-table td {
+        padding: 14px 16px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 15px;
+    }
+
+    .score-table th {
+        font-weight: 600;
+    }
+
+    .score-table tbody tr:hover {
+        background-color: #f1f5ff;
+    }
+
+    .score-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .negative {
+        color: #d32f2f;
+        font-weight: bold;
+    }
+
+    .positive {
+        color: #2e7d32;
+        font-weight: bold;
+    }
+
+    .note {
+        text-align: center;
+        margin-top: 12px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .top-video {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .dual-content,
+        .links {
+            display: block;
+        }
+
+        .dual-content .text-info {
+            margin-bottom: 30px;
+            margin-left: 0;
+        }
+
+        a.button {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+
+
+<div class="content">
+    <p>
+        لیگ RoboCup Junior @Work یک لیگ آموزشی–رقابتی الهام‌گرفته از لیگ RoboCup@Work (رده حرفه‌ای) است که با هدف آموزش
+        مفاهیم پایه‌ی رباتیک صنعتی، اتوماسیون و هوش مصنوعی برای دانش‌آموزان طراحی شده است. در این لیگ، تیم‌ها باید
+        ربات‌های متحرک کاملاً خودمختار طراحی و برنامه‌نویسی کنند که قادر به انجام وظایف ساده‌ی صنعتی مانند جابه‌جایی،
+        شناسایی و قرار دادن قطعات در محیطی شبیه‌سازی‌شده از کارخانه باشند. این لیگ بستری مناسب برای آماده‌سازی
+        دانش‌آموزان جهت ورود به لیگ‌های پیشرفته‌تر RoboCup و آشنایی عملی با دنیای صنعت 4.0 فراهم می‌کند.
+    </p>
+    <video class="top-video" controls controlsList="nodownload" oncontextmenu="return false;"
+        src="https://rrlco.ir/Atwork.mp4"></video>
+
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">اهداف آموزشی و فنی</h1>
+            <p>
+                لیگ RoboCup Junior @Work با هدف آموزش مفاهیم پایه و کاربردی رباتیک صنعتی طراحی شده است. این لیگ تلاش
+                می‌کند دانش‌آموزان را با اصول ناوبری خودمختار، شناسایی و جابه‌جایی اشیا، کنترل حرکت و برنامه‌نویسی
+                ربات‌ها آشنا کند. شرکت‌کنندگان در این رقابت مهارت‌های حل مسئله، تفکر الگوریتمی، طراحی مهندسی و کار تیمی
+                را به‌صورت عملی فرا می‌گیرند و آمادگی لازم برای ورود به لیگ‌های پیشرفته‌تر RoboCup، به‌ویژه RoboCup@Work
+                رده حرفه‌ای، را کسب می‌کنند.
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/io/1.jpg" alt="مستندات فنی">
+        </div>
+    </div>
+
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">زمین مسابقه</h1>
+            <p>
+                برای مدیریت بهتر بازی‌های RCJ Soccer SuperTeam توسط داوران و همچنین فراهم‌کردن یک روش ساده، پایدار و
+                قابل‌اعتماد برای برقراری ارتباط ربات با ربات و ربات با داور، این ماژول توسط ربوکاپ جهانی معرفی شد.
+
+                لازم به ذکر است که در مسابقات ایران اپن امسال این ماژول به‌ صورت آزمایشی در لیگ های جانبی مورد
+                استفاده قرار خواهد گرفت و تیم‌ها باید محل نصب و جانمایی آن را روی ربات‌های خود در نظر بگیرند؛ چرا که در
+                مسابقات جهانی
+                این ماژول مورد استفاده قرار می‌گیرد.
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/io/2.jpg">
+        </div>
+    </div>
+
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">قوانین تیم و ربات</h1>
+            <p>
+                هر تیم متشکل از ۲ تا ۴ دانش‌آموز است و مجاز به استفاده از یک ربات کاملاً خودمختار می‌باشد. ربات‌ها باید
+                در ابعاد و وزن تعیین‌شده طراحی شوند و از کنترلرهای آموزشی رایج مانند Arduino، ESP32 یا Raspberry Pi
+                استفاده کنند. به‌کارگیری حسگرهای پایه برای تشخیص محیط و عملگرهای ساده برای حرکت و گرفتن اشیا مجاز است.
+                رعایت اصول ایمنی از جمله وجود دکمه توقف اضطراری و شناسایی واضح تیم روی ربات الزامی بوده و هرگونه کنترل
+                دستی یا بی‌سیم در حین اجرای مسابقه ممنوع است.
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/io/3.jpg">
+        </div>
+    </div>
+
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">زمین مسابقه</h1>
+            <p>
+                زمین مسابقه محیطی شبیه‌سازی‌شده از یک فضای صنعتی ساده است که با ابعاد مشخص و سطحی صاف طراحی می‌شود. این
+                زمین شامل نواحی تعریف‌شده‌ای مانند منطقه شروع، انبار قطعات، ایستگاه کاری و منطقه هدف است که وظایف ربات
+                در آن‌ها انجام می‌شود. قطعات مورد استفاده سبک و ایمن بوده و از اشکال ساده صنعتی تشکیل شده‌اند تا تمرکز
+                مسابقه بر ناوبری، تشخیص و جابه‌جایی اشیا باشد. استفاده از نشانه‌های دیداری ساده برای تسهیل مکان‌یابی
+                ربات‌ها مجاز است.
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/io/4.jpg">
+        </div>
+    </div>
+
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">روند کلی مسابقه (Gameplay)</h1>
+            <p>
+                در هر دور مسابقه، ربات از منطقه شروع حرکت کرده و باید در مدت‌زمان مشخص، وظایف اعلام‌شده را به‌صورت
+                کاملاً خودمختار انجام دهد. این وظایف شامل حرکت در زمین، شناسایی قطعات، برداشتن آن‌ها و قرار دادن در محل
+                صحیح است. هیچ‌گونه دخالت انسانی در طول اجرای دور مجاز نیست و عملکرد ربات بر اساس دقت، صحت انجام وظایف و
+                مدیریت زمان ارزیابی می‌شود. ساختار مسابقه به‌گونه‌ای طراحی شده است که هم سادگی آموزشی داشته باشد و هم
+                چالش‌های واقعی رباتیک صنعتی را به‌صورت قابل فهم برای دانش‌آموزان ارائه دهد.
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/io/5.jpg">
+        </div>
+    </div>
+
+    <h1 class="center-title">آزمون‌ها و مراحل مسابقه (Round Tests)</h1>
+    <div class="cards-view">
+        <div class="card">
+            <h1>آزمون جابه‌جایی پایه (BTT)</h1>
+            <p>
+                شامل برداشتن یک قطعه از محل مشخص‌شده در انبار و انتقال آن به منطقه هدف است. در این مرحله، ربات باید
+                بتواند به‌صورت خودمختار به موقعیت قطعه حرکت کند، آن را به‌درستی بردارد و بدون برخورد با دیواره‌ها یا
+                موانع، در محل تعیین‌شده قرار دهد. این آزمون یکی از پایه‌ای‌ترین مراحل مسابقه محسوب می‌شود و نقش مهمی در
+                ارزیابی عملکرد کلی ربات دارد.
+            </p>
+        </div>
+        <div class="card">
+            <h1>آزمون ناوبری پایه (BNT)</h1>
+            <p>
+                بر توانایی حرکت دقیق و ایمن ربات در محیط مسابقه تمرکز دارد. در این مرحله، ربات باید بین چند نقطه از پیش
+                تعریف‌شده جابه‌جا شود و مسیر خود را بدون برخورد با دیواره‌ها یا خروج از محدوده زمین طی کند. این آزمون
+                میزان تسلط تیم بر کنترل حرکت، برنامه‌ریزی مسیر و استفاده صحیح از حسگرها را نشان می‌دهد.
+            </p>
+        </div>
+        <div class="card">
+            <h1>آزمون شناسایی قطعه (OIT)</h1>
+            <p>
+                ربات باید قطعات را بر اساس ویژگی‌های ساده‌ای مانند رنگ یا نشانه دیداری تشخیص دهد و تنها قطعه صحیح را
+                انتخاب و جابه‌جا کند. این مرحله نقش مهمی در ارزیابی توانایی پردازش داده‌های حسگری و تصمیم‌گیری ربات ایفا
+                می‌کند و تیم‌ها را با مفاهیم اولیه تشخیص اشیا آشنا می‌سازد.
+            </p>
+        </div>
+        <div class="card">
+            <h1>آزمون مونتاژ ساده (ALT)</h1>
+            <p>
+                شامل قرار دادن چند قطعه در یک ترتیب یا چیدمان مشخص است. در این مرحله، ربات باید چند عمل متوالی را
+                به‌درستی اجرا کند و قطعات را با دقت در محل‌های تعیین‌شده قرار دهد. این آزمون توانایی برنامه‌ریزی وظایف،
+                هماهنگی بین حرکت و عملگرها و دقت عملکرد ربات را ارزیابی می‌کند.
+            </p>
+        </div>
+        <div class="card">
+            <h1>آزمون غافلگیرکننده (ST)</h1>
+            <p>
+                در روز مسابقه معرفی می‌شود و شامل یک تغییر یا چالش ساده نسبت به مراحل قبلی است؛ مانند استفاده از قطعه‌ای
+                با رنگ متفاوت یا تغییر جزئی در محل هدف. این آزمون برای سنجش میزان انعطاف‌پذیری ربات و کیفیت طراحی
+                نرم‌افزار و سخت‌افزار آن در شرایط غیرمنتظره در نظر گرفته شده است.
+            </p>
+        </div>
+    </div>
+
+    <h1 class="center-title">جدول امتیازات</h1>
+    <table class="score-table">
+        <thead>
+            <tr>
+                <th>عملکرد</th>
+                <th>امتیاز</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>برداشتن صحیح قطعه</td>
+                <td class="positive">+10</td>
+            </tr>
+            <tr>
+                <td>تحویل صحیح در محل هدف</td>
+                <td class="positive">+20</td>
+            </tr>
+            <tr>
+                <td>شناسایی درست قطعه</td>
+                <td class="positive">+10</td>
+            </tr>
+            <tr>
+                <td>تکمیل کامل وظیفه</td>
+                <td class="positive">+30</td>
+            </tr>
+            <tr>
+                <td>امتیاز زمان باقی‌مانده (هر ۱۰ ثانیه)</td>
+                <td class="positive">+1</td>
+            </tr>
+            <tr>
+                <td>برخورد با دیواره یا مانع</td>
+                <td class="negative">−5</td>
+            </tr>
+            <tr>
+                <td>دخالت انسانی</td>
+                <td class="negative">−20</td>
+            </tr>
+            <tr>
+                <td>عدم انجام وظیفه</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="dual-content">
+        <div class="image">
+            <img src="https://rrlco.ir/img/robocup1.jpg">
+        </div>
+        <div class="space"></div>
+        <div class="text-info">
+            <h1 class="title">⚽ مسابقات ربوکاپ</h1>
+            <p>
+                مسابقات روبوکاپ (RoboCup) یکی از معتبرترین و بزرگ‌ترین رویدادهای علمی–پژوهشی جهان در حوزه رباتیک و هوش
+                مصنوعی است که با هدف توسعه فناوری‌های پیشرفته و ایجاد بستری برای پژوهش، نوآوری و رقابت سالم میان
+                دانشجویان، پژوهشگران و علاقه‌مندان این حوزه برگزار می‌شود. چشم‌انداز اصلی روبوکاپ، طراحی و توسعه
+                ربات‌هایی هوشمند است که بتوانند در محیط‌های پویا و واقعی تصمیم‌گیری کرده و وظایف پیچیده را به‌صورت
+                خودکار انجام دهند. این مسابقات هر ساله با حضور تیم‌هایی از کشورهای مختلف جهان برگزار می‌شود و شامل
+                لیگ‌های متنوعی از جمله ربات‌های فوتبالیست، ربات‌های صنعتی، ربات‌های امدادگر، ربات‌های خانگی و لیگ‌های
+                شبیه‌سازی است. روبوکاپ علاوه بر جنبه رقابتی، نقش مهمی در پیشبرد تحقیقات علمی، تبادل دانش فنی و تربیت
+                نیروی انسانی متخصص در حوزه‌های هوش مصنوعی، پردازش تصویر، یادگیری ماشین، مکانیک و الکترونیک ایفا می‌کند و
+                بسیاری از فناوری‌های توسعه‌یافته در این مسابقات، زمینه‌ساز کاربردهای صنعتی و پژوهشی در دنیای واقعی
+                شده‌اند.
+            </p>
+            <p>
+                ایران اپن روبوکاپ به‌عنوان بزرگ‌ترین و مهم‌ترین رویداد ملی روبوکاپ در ایران، هرساله با هدف شناسایی و
+                پرورش استعدادهای جوان، ارتقای سطح دانش فنی تیم‌ها و آماده‌سازی آن‌ها برای حضور در رقابت‌های بین‌المللی
+                برگزار می‌شود. این مسابقات بستری ارزشمند برای دانش‌آموزان، دانشجویان و تیم‌های پژوهشی فراهم می‌کند تا در
+                فضایی علمی و رقابتی، دستاوردهای خود را به نمایش بگذارند و با استانداردها و قوانین جهانی روبوکاپ آشنا
+                شوند. ایران اپن علاوه بر نقش آموزشی و پژوهشی، به‌عنوان مسیر انتخاب و اعزام تیم‌های برتر به مسابقات جهانی
+                روبوکاپ شناخته می‌شود و بسیاری از تیم‌های موفق ایرانی از طریق این رقابت‌ها توانسته‌اند در سطح بین‌المللی
+                افتخارآفرینی کنند. این رویداد، با ایجاد تعامل میان دانشگاه‌ها، مدارس، مراکز پژوهشی و صنعت، سهم مهمی در
+                توسعه رباتیک و هوش مصنوعی در کشور داشته و نقش کلیدی در شکل‌گیری نسل آینده پژوهشگران و مهندسان این حوزه
+                ایفا می‌کند.
+            </p>
+            <br>
+            <a href="https://robocup.org" class="button" target="_blank">ربوکاپ جهانی</a>
+            <a href="https://junior.robocup.org" class="button" target="_blank">بخش دانش آموزی ربوکاپ</a>
+        </div>
+    </div>
+</div>

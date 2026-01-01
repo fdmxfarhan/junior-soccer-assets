@@ -106,13 +106,13 @@ void update_all() {
   digitalWrite(PC15, digitalRead(PA12));
   robot_angle = gyro.read();
   HS0038.read();
-  LDR.read();
+  // LDR.read();
   shl = analogRead(PA0);
   shb = analogRead(PA1);
   shr = analogRead(PA2);
   dif = shr - shl;
   Vcap = analogRead(PB0);
-  d```````````````````````````````````isplay.clearDisplay();
+  display.clearDisplay();
   display.setCursor(0, 0);
 
   display.print("D: ");

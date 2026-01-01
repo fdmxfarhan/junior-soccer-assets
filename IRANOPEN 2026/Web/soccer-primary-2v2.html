@@ -1,0 +1,265 @@
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .content {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .top-video {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 2vw;
+        display: block;
+    }
+
+    h1.title {
+        color: rgb(14, 66, 168);
+        text-align: right;
+        direction: rtl;
+        font-size: 27px;
+    }
+
+    p {
+        color: rgb(30, 38, 58);
+        text-align: justify;
+        direction: rtl;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: normal;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    a.button {
+        flex: 1;
+        align-self: center;
+        margin: 0 1vw;
+        background-color: rgb(3, 23, 53);
+        padding: 15px 20px;
+        width: fit-content;
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a.button:hover {
+        background-color: green;
+    }
+
+    .dual-content {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .dual-content .image {
+        flex: 1;
+    }
+
+    .dual-content .text-info {
+        flex: 1;
+        margin-left: 40px;
+    }
+
+    .dual-content .image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    p.note {
+        color: rgb(255, 0, 93);
+        font-weight: bold;
+    }
+
+    .tutorial {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border: rgb(3, 23, 53) 2px solid;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .tabs-view {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .content-tab {
+        flex: 3;
+    }
+
+    .content-tab video {
+        width: 100%;
+    }
+
+    .tab-btn {
+        padding: 20px 20px;
+        border-bottom: lightgray 1px solid;
+        cursor: pointer;
+    }
+
+    .tab-btn:hover {
+        background-color: rgb(156, 156, 156);
+    }
+
+    .space {
+        width: 5%;
+    }
+
+    .tab-btn.active {
+        font-weight: bold;
+        color: white;
+        background-color: rgb(3, 23, 53);
+    }
+
+    @media only screen and (max-width: 800px) {
+        .top-video {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .dual-content,
+        .links {
+            display: block;
+        }
+
+        .dual-content .text-info {
+            margin-bottom: 30px;
+            margin-left: 0;
+        }
+
+        a.button {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+
+
+<div class="content">
+    <p>
+        در لیگ فوتبالیست وزن سبک پیشرفته (Soccer Light Weight Secondary)، حداکثر ابعاد هر ربات ۲۲ سانتی‌متر و وزن آن
+        حداکثر 1500 گرم است. توپ مورد استفاده در این لیگ یک توپ فعال بوده و با ارسال پالس‌های مادون‌قرمز (IR)، تشخیص توپ
+        را برای ربات‌ها آسان‌تر و دقیق‌تر می‌کند. این لیگ دارای سهمیه ورود به مسابقات جهانی ربوکاپ است و رقابت در آن
+        به‌صورت کاملاً حرفه‌ای برگزار می‌شود. مسابقات امسال مطابق با قوانین ۲۰۲۵ ربوکاپ جهانی اجرا خواهد شد و تیم‌های
+        حرفه‌ای در این لیگ با هدف کسب سهمیه حضور در رقابت‌های جهانی ربوکاپ به مصاف یکدیگر می‌روند.
+    </p>
+    <video class="top-video" controls controlsList="nodownload" oncontextmenu="return false;"
+        src="https://rrlco.ir/robocup01.mp4"></video>
+    <h1 class="title">📢 تعداد اعضا و شرایط سنی تیم‌های مقدماتی و پیشرفته</h1>
+    <p>
+        الف) مقدماتی: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های پرایمری حداقل 10 سال و حداکثر 14 سال تمام می
+        باشد(پایه‌های چهارم، پنجم،ششم، هفتم و هشتم) و تعداد اعضای شرکت گننده: 5 نفر عضو، 1 نفر مربی و 1 نفر سرپرست
+        می‌توانند باشند. البته در لیگ onstage تیم‌ها می‌توانند یک عضو بیشتر داشته باشند.
+    </p>
+    <p>
+        ب) پیشرفته: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های سکندری حداقل 14 سال و حداکثر 18 سال تمام می
+        باشد(پایه‌های هشتم،نهم،دهم،یازدهم و دوازدهم) و تعداد اعضای شرکت گننده: 5 نفر عضو، 1 نفر مربی و 1 نفر سرپرست
+        می‌توانند باشند. البته در لیگ onstage تیم‌ها می‌توانند یک عضو بیشتر داشته باشند.
+    </p>
+    <div class="links">
+        <a class="button" href="https://robocup-junior.github.io/soccer-rules/2025-soccer-draft-rules/rules.html"
+            target="_blank">مشاهده قوانین 2025</a>
+        <a class="button" href="https://github.com/robocup-junior/rcj-soccer-tdp-2025?tab=readme-ov-file"
+            target="_blank">مستندات فنی و پوستر های گذشته</a>
+    </div>
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">💡مستندات فنی</h1>
+            <p>تمامی تیم‌ها باید تا تاریخ مشخص شده مستندات فنی خود، شامل یک فیلم 2 دقیقه ای، کمتر از 10 مگابایت از
+                عملکرد برنامه خود و یک
+                گزارش فنی در قالب یک فایل PDF کمتر از یک مگابایت از طریق سایت ایران اپن ارسال نمایند. در گزارش فنی باید
+                معرفی تیم و اعضای
+                تیم، تاریخچه فعالیت تیم و توضیحاتی از الگوریتم های استفاده شده ذکر شود. </p>
+            <br>
+            <p class="note">تاریخ ارسال مستندات اعلام می‌گردد</p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/tdpvideo.png">
+        </div>
+    </div>
+    <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">⚽ توپ مسابقات</h1>
+            <p>
+                در لیگ فوتبالیست وزن سبک مقدماتی و پیشرفته، مطابق با قوانین سال ۲۰۲۵، مسابقات امسال با استفاده از توپ IR
+                مدل RoboCupJunior Official Electronic Ball RCJ-05R برگزار خواهد شد.
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/ball.jpg">
+        </div>
+    </div>
+    <!-- <div class="dual-content">
+        <div class="text-info">
+            <h1 class="title">⚽ ماژول ارتباط RCJ</h1>
+            <p>
+                برای مدیریت بهتر بازی‌های RCJ Soccer SuperTeam توسط داوران و همچنین فراهم‌کردن یک روش ساده، پایدار و
+                قابل‌اعتماد برای برقراری ارتباط ربات با ربات و ربات با داور، این ماژول توسط ربوکاپ جهانی معرفی شد.
+
+                در ادامه لازم به ذکر است که در مسابقات ایران اپن امسال این ماژول به‌ صورت رسمی مورد استفاده قرار نخواهد
+                گرفت، اما تیم‌ها باید محل نصب و جانمایی آن را روی ربات‌های خود در نظر بگیرند؛ چرا که در مسابقات جهانی
+                این ماژول مورد استفاده قرار می‌گیرد.
+            </p>
+            <br>
+            <a href="https://robofuze.com/products/communication-module-for-rcj-soccer" class="button"
+                target="_blank">خرید ماژول ارتباط</a>
+            <a href="https://github.com/robocup-junior/soccer-communication-module/tree/master" class="button"
+                target="_blank">گیت هاب ماژول ارتباط</a>
+        </div>
+        <div class="image">
+            <img src="https://rrlco.ir/img/rcjv3_dimensions.png">
+        </div>
+    </div> -->
+    <div class="dual-content">
+        <div class="image">
+            <img src="https://rrlco.ir/img/robocup1.jpg">
+        </div>
+        <div class="space"></div>
+        <div class="text-info">
+            <h1 class="title">⚽ مسابقات ربوکاپ</h1>
+            <p>
+                مسابقات روبوکاپ (RoboCup) یکی از معتبرترین و بزرگ‌ترین رویدادهای علمی–پژوهشی جهان در حوزه رباتیک و هوش
+                مصنوعی است که با هدف توسعه فناوری‌های پیشرفته و ایجاد بستری برای پژوهش، نوآوری و رقابت سالم میان
+                دانشجویان، پژوهشگران و علاقه‌مندان این حوزه برگزار می‌شود. چشم‌انداز اصلی روبوکاپ، طراحی و توسعه
+                ربات‌هایی هوشمند است که بتوانند در محیط‌های پویا و واقعی تصمیم‌گیری کرده و وظایف پیچیده را به‌صورت
+                خودکار انجام دهند. این مسابقات هر ساله با حضور تیم‌هایی از کشورهای مختلف جهان برگزار می‌شود و شامل
+                لیگ‌های متنوعی از جمله ربات‌های فوتبالیست، ربات‌های صنعتی، ربات‌های امدادگر، ربات‌های خانگی و لیگ‌های
+                شبیه‌سازی است. روبوکاپ علاوه بر جنبه رقابتی، نقش مهمی در پیشبرد تحقیقات علمی، تبادل دانش فنی و تربیت
+                نیروی انسانی متخصص در حوزه‌های هوش مصنوعی، پردازش تصویر، یادگیری ماشین، مکانیک و الکترونیک ایفا می‌کند و
+                بسیاری از فناوری‌های توسعه‌یافته در این مسابقات، زمینه‌ساز کاربردهای صنعتی و پژوهشی در دنیای واقعی
+                شده‌اند.
+            </p>
+            <p>
+                ایران اپن روبوکاپ به‌عنوان بزرگ‌ترین و مهم‌ترین رویداد ملی روبوکاپ در ایران، هرساله با هدف شناسایی و
+                پرورش استعدادهای جوان، ارتقای سطح دانش فنی تیم‌ها و آماده‌سازی آن‌ها برای حضور در رقابت‌های بین‌المللی
+                برگزار می‌شود. این مسابقات بستری ارزشمند برای دانش‌آموزان، دانشجویان و تیم‌های پژوهشی فراهم می‌کند تا در
+                فضایی علمی و رقابتی، دستاوردهای خود را به نمایش بگذارند و با استانداردها و قوانین جهانی روبوکاپ آشنا
+                شوند. ایران اپن علاوه بر نقش آموزشی و پژوهشی، به‌عنوان مسیر انتخاب و اعزام تیم‌های برتر به مسابقات جهانی
+                روبوکاپ شناخته می‌شود و بسیاری از تیم‌های موفق ایرانی از طریق این رقابت‌ها توانسته‌اند در سطح بین‌المللی
+                افتخارآفرینی کنند. این رویداد، با ایجاد تعامل میان دانشگاه‌ها، مدارس، مراکز پژوهشی و صنعت، سهم مهمی در
+                توسعه رباتیک و هوش مصنوعی در کشور داشته و نقش کلیدی در شکل‌گیری نسل آینده پژوهشگران و مهندسان این حوزه
+                ایفا می‌کند.
+            </p>
+            <br>
+            <a href="https://robocup.org" class="button" target="_blank">ربوکاپ جهانی</a>
+            <a href="https://junior.robocup.org" class="button" target="_blank">بخش دانش آموزی ربوکاپ</a>
+        </div>
+    </div>
+</div>
