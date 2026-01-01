@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <HS0038.h>
 TwoWire i2c(2, I2C_FAST_MODE);
-HS0038 HS0038(&i2c, 0x09);
+HS0038 LDR(&i2c, 0x09);
 float angle;
 void setup() {
   Serial.begin(115200);
@@ -9,10 +9,12 @@ void setup() {
 }
 
 void loop() {
-  HS0038.read();
-  Serial.print(HS0038.angle);
+  LDR.read();
+  Serial.print(LDR.front);
   Serial.print('\t');
-  Serial.print(HS0038.distance);
+  Serial.print(LDR.right);
   Serial.print('\t');
-  Serial.println(HS0038.is_ball);
+  Serial.print(LDR.back);
+  Serial.print('\t');
+  Serial.println(LDR.left);
 }
