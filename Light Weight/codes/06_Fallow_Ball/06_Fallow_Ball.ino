@@ -20,10 +20,7 @@ void motor(int ML1, int ML2, int MR2, int MR1) {
   MR2 += robot_angle * 400;
   MR1 += robot_angle * 400;
 
-  ML1 = -ML1;
-  ML2 = -ML2;
-  MR2 = -MR2;
-  MR1 = -MR1;
+  // qs// MR1 = -MR1;
 
   if (ML1 > MAX_SPEED) ML1 = MAX_SPEED;
   if (ML1 < -MAX_SPEED) ML1 = -MAX_SPEED;
@@ -178,8 +175,9 @@ void Forward_AI() {
   } else if (HS0038.is_ball) {
     shift();
   } else {
-    if (shb < 1000) motor(dif * 10 - 30000, -dif * 10 - 30000, -dif * 10 + 30000, dif * 10 + 30000);
-    else motor(dif * 10, -dif * 10, -dif * 10, dif * 10);
+    // if (shb < 1000) motor(dif * 10 - 30000, -dif * 10 - 30000, -dif * 10 + 30000, dif * 10 + 30000);
+    // else motor(dif * 10, -dif * 10, -dif * 10, dif * 10);
+    stop();
   }
 }
 void GoalKeeper_AI(){
@@ -227,9 +225,11 @@ void setup() {
 void loop() {
   update_all();
   out();
-  if(digitalRead(PA11)){
-    Forward_AI();
-  }else{
-    GoalKeeper_AI();
-  }
+  Forward_AI();
+
+  // if(digitalRead(PA11)){
+  //   Forward_AI();
+  // }else{
+  //   GoalKeeper_AI();
+  // }
 }

@@ -18,10 +18,12 @@ void shoot_init(int pwm) {
   }
 }
 void shoot() {
+  if (already_shooted) return;
   if (Ball_In_Kicker) {
-    digitalWrite(PC15, 1);
-    delay(50);
-    digitalWrite(PC15, 0);
-    delay(25);
+    digitalWrite(PB15, 1);
+    delay(10);
+    digitalWrite(PB15, 0);
+    already_shooted = true;
   }
+  
 }

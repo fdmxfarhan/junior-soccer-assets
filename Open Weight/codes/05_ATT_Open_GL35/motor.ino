@@ -1,9 +1,11 @@
 void motor(int L1, int L2, int R2, int R1) {
   if (TDAxis_enable == true) {
     float correction = robot_angle;
-    if(TDAxis_reverse){
-      if(correction <= 0) correction += 180;
+    if (TDAxis_reverse) {
+      if (correction <= 0) correction += 180;
       else correction -= 180;
+      if (correction > 70) correction = 70;
+      if (correction < -70) correction = -70;
     }
     L1 -= correction * 2;
     L2 -= correction * 2;
@@ -47,4 +49,10 @@ void move_angle_speed(int input_angle, int sp) {
   int x = -sp * cos(radians(input_angle));  /////////////////// X of angle
   int y = -sp * sin(radians(input_angle));
   motor(x + y, x - y, -x - y, y - x);
+}
+void move_sec(int a, int sec, int spd) {
+  for (int i = 0; i < sec; i++) {
+    move_angle_speed(a, spd);
+    update_all();
+  }
 }

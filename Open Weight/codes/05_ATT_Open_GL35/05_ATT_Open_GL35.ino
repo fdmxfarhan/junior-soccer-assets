@@ -2,23 +2,26 @@
 #include <TDAxis12.h>
 #include <Adafruit_SH1106_STM32.h>
 #include <PixyI2C.h>
+#include <LDR.h>
 #define Ball_In_Kicker digitalRead(PA3)
 #define Team_Yellow digitalRead(PA11)
 Adafruit_SH1106 display(-1);
 TwoWire i2c(2, I2C_FAST_MODE);
 TDAxis12 gy(&i2c, 0x10);
+LDR ldr(&i2c);
 PixyI2C pixy;
 int speed = 390;
 float ball_x;
 float ball_y;
 float ball_x_pixy;
 float ball_y_pixy;
+bool already_shooted = false;
 
 
-float v = 2.5;
+float v = 1.8;
 float v_pixy = 2;
-float v_gardesh = 1.7;
-float v_gardesh_pixy = 1.7;
+float v_gardesh = 1.5;
+float v_gardesh_pixy = 1.1;
 
 
 bool TDAxis_enable = false;
@@ -26,7 +29,11 @@ bool TDAxis_reverse = false;
 bool is_yellow;
 bool is_blue;
 bool is_goal;
+bool is_yellow_pixy;
+bool is_blue_pixy;
+bool is_goal_pixy;
 int primery_speed = 300;
+
 float robot_angle;
 float yellow_angle;
 float yellow_x;
@@ -37,10 +44,20 @@ float blue_y;
 float goal_angle;
 float goal_x;
 float goal_y;
+
+float yellow_angle_pixy;
+float yellow_x_pixy;
+float yellow_y_pixy;
+float blue_angle_pixy;
+float blue_x_pixy;
+float blue_y_pixy;
+float goal_angle_pixy;
+float goal_x_pixy;
+float goal_y_pixy;
 ///////////////////////////////////////////// ROBOT 1
 int robot_x_1 = 120;  // OpenMV
 int robot_y_1 = 100;  // OpenMV
-int robot_x_pixy_1 = 148;  
+int robot_x_pixy_1 = 153;  
 int robot_y_pixy_1 = 250;
 ///////////////////////////////////////////// ROBOT 2
 int robot_x_2 = 100;  // OpenMV
@@ -74,8 +91,8 @@ void setup() {
   pinMode(PA3, INPUT);    //////IR
   pinMode(PC14, OUTPUT);  ///////spiner
   pinMode(PC15, OUTPUT);  ////SHOOT_RELAY
+  pinMode(PB15, OUTPUT);  ////SHOOT_RELAY
   pinMode(PB9, PWM);      /////SHOOT_Mosfet
-  shoot_init(0);
   robot_id = digitalRead(PA15) + 1;
   if(robot_id == 1){
     robot_x = robot_x_1;
@@ -101,13 +118,8 @@ void setup() {
 }
 
 void loop() {
-  robot_angle = gy.read();
-  print_all();
-  read_MV();
-  read_pixy();
-  sensor();
-  shoot_init(500);
-
+  update_all();
+  out();
   if (digitalRead(PA12) == 1) {
     Rotate_Move_AI();
   } else {

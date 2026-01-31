@@ -34,17 +34,19 @@ void loop() {
     sensors[i+8] = pulseIn(PA1, LOW, 5000);
     digitalWrite(PB15, 0);
     digitalWrite(PC13, 0);
-    delay(1);
+    delay(4);
   }
-  // for(int i=0;  i<16; i++){
-  //   i2cBufferAll[i] = sensors[i]/10;
-  // }
+  for(int i=0;  i<16; i++){
+    i2cBufferAll[i] = sensors[i]/10;
+  }
   float sumX = 0, sumY = 0;
   bool is_ball = false;
   for(int i=0; i<16; i++){
     if(sensors[i] > 50) {
       is_ball = true;
+      // sensors[i] = 1;
     }
+    else sensors[i] = 0;
     float angleDeg = i * 22.5;
     sumX += sensors[i] * cos(radians(angleDeg));
     sumY += sensors[i] * sin(radians(angleDeg));

@@ -11,10 +11,10 @@ public:
     void read();
 
     uint8_t data[5];
-    bool front;
-    bool back;
-    bool left;
-    bool right;
+    uint8_t front;
+    uint8_t back;
+    uint8_t left;
+    uint8_t right;
 private:
   TwoWire *_wire;
   const uint8_t _count = 3;

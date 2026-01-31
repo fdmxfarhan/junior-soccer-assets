@@ -1,7 +1,7 @@
 void print_all() {
   if (digitalRead(PB4)) {
     mode++;
-    mode %= 3;
+    mode %= 4;
     while (digitalRead(PB4))
       ;
   }
@@ -50,6 +50,16 @@ void print_all() {
     display.println(robot_angle);
     display.print("cap: ");
     display.println(cap);
+  } else if (mode == 3) {
+    display.setCursor(0, 25);
+    display.print("F: ");
+    display.println(ldr.front);
+    display.print("R: ");
+    display.println(ldr.right);
+    display.print("B: ");
+    display.println(ldr.back);
+    display.print("L: ");
+    display.println(ldr.left);
   }
   display.display();
 }

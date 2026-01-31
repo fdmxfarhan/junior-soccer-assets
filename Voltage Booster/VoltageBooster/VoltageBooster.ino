@@ -1,14 +1,21 @@
 void setup() {
+  analogWrite(PA6, 0);
   pinMode(PB1, OUTPUT);
   pinMode(PA6, OUTPUT);
-  analogWrite(PA6, 30);
 }
 
 void loop() {
-  digitalWrite(PB1, 1);
-  delay(50);
-  digitalWrite(PB1, 0);
-  delay(1000);
+  uint16_t v = readADC(2);
+  if(v > 1000) analogWrite(PA6, 0);
+  if(v < 900) analogWrite(PA6, 22);
+  if(v > 950) {
+    digitalWrite(PB1, 1);
+  }else {
+    digitalWrite(PB1, 1);
+    delay(50);
+    digitalWrite(PB1, 0);
+    delay(1000);
+  }
 }
 
 uint16_t readADC(uint8_t channel) {
