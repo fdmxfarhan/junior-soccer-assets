@@ -1,6 +1,14 @@
 void oled_init(){
+  robot_id = digitalRead(PA15)+1;
   display.begin(0x3c);
   display.setTextColor(WHITE);
+  display.setTextSize(4);
+  display.clearDisplay();
+  display.setCursor(0, 10);
+  display.print("");
+  display.print(robot_id);
+  display.display();
+  delay(900);
   display.setTextSize(1);
   display.display();
 }

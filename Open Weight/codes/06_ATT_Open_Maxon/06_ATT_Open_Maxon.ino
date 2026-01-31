@@ -36,7 +36,7 @@ bool is_blue;
 bool is_goal;
 int robot_x = 146;
 int robot_y = 134;
-
+int robot_id;
 void setup() {
   shoot_init();
   init_motors();
