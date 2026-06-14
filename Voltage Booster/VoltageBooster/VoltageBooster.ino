@@ -7,8 +7,8 @@ void setup() {
 void loop() {
   uint16_t v = readADC(2);
   if(v > 1000) analogWrite(PA6, 0);
-  if(v < 900) analogWrite(PA6, 22);
-  if(v > 950) {
+  if(v < 900) analogWrite(PA6, 20);
+  if(v > 900) {
     digitalWrite(PB1, 1);
   }else {
     digitalWrite(PB1, 1);

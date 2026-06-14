@@ -53,7 +53,7 @@ void loop() {
 
 /////////////////////////////////////////
   // display.drawCircle(64, 32, 20, WHITE);
-  // for(int i=0; i<16; i++){c
+  // for(int i=0; i<16; i++){
   //   float a = radians(i * 22.5);
   //   if(buffer[i] > 10) display.fillCircle(64 + sin(a)*25, 32 - cos(a)*25, 2, WHITE);
   // }
@@ -64,7 +64,6 @@ void loop() {
   display.drawCircle(64, 32, 20, WHITE);
   float a = radians(maxSensIndex * 22.5);
   if(maxSens > 10) display.fillCircle(64 + sin(a)*25, 32 - cos(a)*25, 2, WHITE);
-  display.display();
 
   // Serial.print(angle);
   // Serial.print("\t");
@@ -72,4 +71,5 @@ void loop() {
   // Serial.print("\t");
   // Serial.println(is_ball);
   // delay(10);
+  display.display();
 }

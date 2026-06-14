@@ -7,6 +7,7 @@
 #define PWM_3 PB7
 #define PWM_4 PB6
 #define REVERSE_MOTORS true
+
 void init_motors() {
   pinMode(IN_1, OUTPUT);
   pinMode(IN_2, OUTPUT);
@@ -19,10 +20,13 @@ void init_motors() {
   motor(0, 0, 0, 0);
 }
 void motor(int ML1, int ML2, int MR2, int MR1) {
-
   if (use_gyro) {
     float correction = robot_angle;
-
+    if (gyro_reverse) {
+      if (correction >= 0) correction -= 180;
+      else correction += 180;
+    }
+    correction = clamp(correction, -90, 90);
     ML1 += correction * 400;
     ML2 += correction * 400;
     MR2 += correction * 400;
@@ -33,6 +37,12 @@ void motor(int ML1, int ML2, int MR2, int MR1) {
     ML2 = -ML2;
     MR2 = -MR2;
     MR1 = -MR1;
+  }
+  if(robot_id == 1){
+    ML1 *= 0.7;
+    ML2 *= 0.7;
+    MR1 *= 0.7;
+    MR2 *= 0.7;
   }
 
   if (ML1 > MAX_SPEED) ML1 = MAX_SPEED;
@@ -76,7 +86,7 @@ void motor(int ML1, int ML2, int MR2, int MR1) {
     pwmWrite(PWM_4, 65525 + MR1);
   }
 }
-void move(int a, int v) {
+void move(float a, int v) {
   if (a > 360) a -= 360;
   if (a < 0) a += 360;
   int x = v * cos(a * M_PI / 180);
@@ -84,20 +94,23 @@ void move(int a, int v) {
   motor((x + y), (x - y), (-x - y), (y - x));
 }
 void moveXY(float Vx, float Vy, float w) {
-  int speed_x = 2;
-  int speed_y = 2;
-  int speed_w = 2;
-  int Vl1 = Vx * speed_x + Vy * speed_y + w * speed_w;
-  int Vl2 = -Vx * speed_x + Vy * speed_y + w * speed_w;
-  int Vr2 = -Vx * speed_x - Vy * speed_y + w * speed_w;
-  int Vr1 = Vx * speed_x - Vy * speed_y + w * speed_w;
+  int Vl1 = Vx + Vy + w;
+  int Vl2 = -Vx + Vy + w;
+  int Vr2 = -Vx - Vy + w;
+  int Vr1 = Vx - Vy + w;
   motor(Vl1, Vl2, Vr2, Vr1);
+}
+void moveSec(float a, int v, float sec) {
+  for (int i = 0; i < sec; i++) {
+    if(move_inside()) move(a, v);
+    update_all();
+  }
 }
 void stop() {
   motor(0, 0, 0, 0);
 }
-int clamp(float val, float min_, float max_){
-  if(val > max_) return max_;
-  if(val < min_) return min_;
+float clamp(float val, float minn, float maxx) {
+  if (val > maxx) return maxx;
+  if (val < minn) return minn;
   return val;
 }

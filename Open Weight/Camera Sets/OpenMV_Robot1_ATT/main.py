@@ -79,7 +79,7 @@ while True:
         y_blue = 0
     if len(orenge_blobs) > 0:
         ball = bigest(orenge_blobs)
-        r = int(ball.w()/2)
+        r = int(ball.w())
         x_ball = int(ball.x() + ball.w()/2)
         y_ball = int(ball.y() + ball.h()/2)
         img.draw_circle(x_ball, y_ball, r, (0,255,0), fill=False)

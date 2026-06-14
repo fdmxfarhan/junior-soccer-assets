@@ -1,4 +1,64 @@
 <style>
+    /* ===== Announcements Section ===== */
+    .announcements-section {
+        margin: 60px 0;
+        direction: rtl;
+    }
+
+    .announcement-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .announcement-card {
+        background: linear-gradient(135deg, #f7faff 0%, #eef4ff 100%);
+        border-right: 6px solid rgb(14, 66, 168);
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        transition: 0.3s ease;
+    }
+
+    .announcement-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .announcement-card h2 {
+        color: rgb(14, 66, 168);
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    .announcement-card p {
+        margin-bottom: 10px;
+        line-height: 1.9;
+    }
+
+    .announcement-badge {
+        display: inline-block;
+        background-color: rgb(14, 66, 168);
+        color: white;
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .announcement-card {
+            padding: 20px;
+        }
+
+        .announcement-card h2 {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<style>
     .hidden {
         display: none;
     }
@@ -286,6 +346,170 @@
         width: 15%;
         text-align: center;
     }
+
+    .tsc-schedule {
+        direction: ltr;
+        font-family: Arial, sans-serif;
+        margin-top: 40px;
+        padding: 20px 0;
+    }
+
+    .tsc-schedule__title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 24px;
+        color: #111;
+    }
+
+    .tsc-schedule__grid {
+        display: grid;
+        grid-template-columns: 140px repeat(3, 1fr);
+        gap: 6px;
+        align-items: stretch;
+    }
+
+    .tsc-schedule__corner {
+        background: transparent;
+    }
+
+    .tsc-schedule__day {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 74px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.25;
+        border-radius: 4px;
+        color: #111;
+    }
+
+    .tsc-schedule__day--yellow {
+        background: #f0c300;
+    }
+
+    .tsc-schedule__time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 66px;
+        background: #f2f2f2;
+        color: #111;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 4px;
+        text-align: center;
+        padding: 0 8px;
+    }
+
+    .tsc-schedule__block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 66px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 700;
+        padding: 10px 12px;
+        line-height: 1.2;
+    }
+
+    .tsc-schedule__block--red {
+        background: #d61515;
+    }
+
+    .tsc-schedule__block--blue {
+        background: #0fa8e8;
+    }
+
+    .tsc-schedule__block--green {
+        background: #4f6f2d;
+    }
+
+    .tsc-schedule__block--gray {
+        background: #6d6d6d;
+    }
+
+    .tsc-schedule__block--navy {
+        background: #0b1f57;
+    }
+
+    .tsc-schedule__block--empty {
+        background: transparent;
+        min-height: 66px;
+    }
+
+    @media (max-width: 900px) {
+        .tsc-schedule__grid {
+            grid-template-columns: 110px repeat(3, 1fr);
+        }
+
+        .tsc-schedule__title {
+            font-size: 24px;
+        }
+
+        .tsc-schedule__day,
+        .tsc-schedule__block {
+            font-size: 14px;
+        }
+
+        .tsc-schedule__time {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .tsc-schedule__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .tsc-schedule__corner,
+        .tsc-schedule__time {
+            display: none;
+        }
+
+        .tsc-schedule__day,
+        .tsc-schedule__block {
+            min-height: 56px;
+        }
+    }
+
+    img.full {
+        width: 100%;
+        display: block;
+
+    }
+
+    img.p80 {
+        width: 80%;
+        margin: auto;
+        display: block;
+    }
+
+    img.p70 {
+        width: 70%;
+        margin: auto;
+        display: block;
+    }
+
+    @media (max-width: 700px) {
+        img.full {
+            width: 100%;
+        }
+
+        img.p80 {
+           width: 100%;
+        }
+
+        img.p70 {
+           width: 100%;
+        }
+
+    }
 </style>
 
 <div class="content">
@@ -295,7 +519,7 @@
         می‌کند.
     </p>
     <video class="top-video" controls controlsList="nodownload" oncontextmenu="return false;"
-        src="http://45.90.72.56:3000/robocup01.mp4"></video>
+        src="http://rrlco.ir/Robotic/Final video of the work of the Semicolon team robots. RoboCup Soccer Lightweight - Semicolon (720p, h264).mp4"></video>
     <h1 class="title">📢 تعداد اعضا و شرایط سنی تیم‌های مقدماتی و پیشرفته</h1>
     <p>
         الف) مقدماتی: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های پرایمری حداقل 10 سال و حداکثر 14 سال تمام می
@@ -324,7 +548,8 @@
             <h2>🎥 فیلم عملکرد ربات</h2>
             <ul>
                 <li>حداکثر زمان ویدئو: ۲ دقیقه</li>
-                <li>حداکثر حجم فایل: ۱۰ مگابایت</li>
+                <li>حداکثر حجم فایل: ۱۰ مگابایت (در صورتی که حجم ویدئو از 10 مگابایت بیشتر بود آن را در آپارات آپلود
+                    نموده و لینک دسترسی آن را به آدرس daemifarhan@gmail.com ایمیل کنید)</li>
                 <li>نمایش عملکرد هر دو ربات (در صورت دو به دو بودن لیگ) و تمامی قابلیت‌های آن‌ها</li>
                 <li>ربات‌های شرکت‌کننده در مسابقات نباید تفاوت اساسی با ربات‌های نمایش‌داده‌شده در فیلم داشته باشند</li>
                 <li>فیلم‌ها باید با ربات‌های نهایی و جدید تیم ضبط شده باشند</li>
@@ -364,10 +589,10 @@
                 <li>شرح کامل الگوریتم‌ها و روش‌های کنترلی و نرم‌افزاری استفاده‌شده</li>
                 <li>ارائه توضیحات فنی به‌صورت شفاف، مستند و قابل ارزیابی</li>
             </ul>
-            <a href="http://45.90.72.56:3000/Team_Description_Paper.docx" class="button" download>
+            <a href="http://rrlco.ir/Team_Description_Paper.docx" class="button" download>
                 ⬇️ دانلود قالب گزارش فنی 1
             </a>
-            <a href="http://45.90.72.56:3000/Team_Description_Paper2.docx" class="button" download>
+            <a href="http://rrlco.ir/Team_Description_Paper2.docx" class="button" download>
                 ⬇️ دانلود قالب گزارش فنی 2
             </a>
 
@@ -375,10 +600,10 @@
         </div>
 
         <div class="image small">
-            <img src="http://45.90.72.56:3000/img/tdpvideo.png" alt="مستندات فنی">
+            <img src="http://rrlco.ir/img/tdpvideo.png" alt="مستندات فنی">
         </div>
     </div>
-    <section class="teams-section">
+    <!-- <section class="teams-section">
         <h2>آرشیو مستندات تیم‌ها (1404)</h2>
         <div class="table-wrapper">
             <table class="rtl-table">
@@ -397,12 +622,11 @@
                         <td data-label="نام تیم">H7_O.R</td>
                         <td data-label="لیگ" class="centeralign">Simulation</td>
                         <td class="centeralign" data-label="TDP">
-                            <a href="http://45.90.72.56:3000/tdp/simulationH7-O.R.pdf" target="_blank"
+                            <a href="http://rrlco.ir/tdp/simulationH7-O.R.pdf" target="_blank"
                                 download="true">گزارش فنی</a>
                         </td>
                         <td class="centeralign" data-label="ویدئو">
-                            <!-- <a href="#" target="_blank" download="true">فیلم
-                                عملکرد</a> -->
+                            
                         </td>
                     </tr>
                     <tr>
@@ -410,11 +634,10 @@
                         <td data-label="نام تیم">H7-S.A.A</td>
                         <td data-label="لیگ" class="centeralign">Simulation</td>
                         <td class="centeralign" data-label="TDP"><a
-                                href="http://45.90.72.56:3000/tdp/simulation_H7-S.A.A.pdf" target="_blank"
+                                href="http://rrlco.ir/tdp/simulation_H7-S.A.A.pdf" target="_blank"
                                 download="true">گزارش فنی</a></td>
                         <td class="centeralign" data-label="ویدئو">
-                            <!-- <a href="#" target="_blank" download="true">فیلم
-                                عملکرد</a> -->
+                            
                         </td>
                     </tr>
                     <tr>
@@ -422,24 +645,22 @@
                         <td data-label="نام تیم">H7_Ghost</td>
                         <td data-label="لیگ" class="centeralign">Simulation</td>
                         <td class="centeralign" data-label="TDP">
-                            <a href="http://45.90.72.56:3000/tdp/simulation_H7_Ghost.pdf" target="_blank"
+                            <a href="http://rrlco.ir/tdp/simulation_H7_Ghost.pdf" target="_blank"
                                 download="true">گزارش فنی</a>
                         </td>
                         <td class="centeralign" data-label="ویدئو">
-                            <!-- <a href="#" target="_blank" download="true">فیلم عملکرد</a> -->
-                        </td>
+                            
                     </tr>
                     <tr>
                         <td class="centeralign" data-label="شماره">4</td>
                         <td data-label="نام تیم">H7_B.M.2</td>
                         <td data-label="لیگ" class="centeralign">Simulation</td>
                         <td class="centeralign" data-label="TDP">
-                            <a href="http://45.90.72.56:3000/tdp/simulation_H7_B.M.2.pdf" target="_blank"
+                            <a href="http://rrlco.ir/tdp/simulation_H7_B.M.2.pdf" target="_blank"
                                 download="true">گزارش فنی</a>
                         </td>
                         <td class="centeralign" data-label="ویدئو">
-                            <!-- <a href="#" target="_blank" download="true">فیلم
-                                عملکرد</a> -->
+                            
                         </td>
                     </tr>
                     <tr>
@@ -447,18 +668,17 @@
                         <td data-label="نام تیم">Danesh</td>
                         <td data-label="لیگ" class="centeralign">Simulation</td>
                         <td class="centeralign" data-label="TDP">
-                            <a href="http://45.90.72.56:3000/tdp/simulation_Danesh.pdf" target="_blank"
+                            <a href="http://rrlco.ir/tdp/simulation_Danesh.pdf" target="_blank"
                                 download="true">گزارش فنی</a>
                         </td>
                         <td class="centeralign" data-label="ویدئو">
-                            <!-- <a href="#" target="_blank" download="true">فیلم
-                                عملکرد</a> -->
+                            
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </section>
+    </section> -->
     <div class="dual-content">
         <div class="text-info">
             <h1 class="title">⚽ توپ مسابقات</h1>
@@ -476,7 +696,7 @@
             </p>
         </div>
         <div class="image">
-            <img src="http://45.90.72.56:3000/img/ball.jpg">
+            <img src="http://rrlco.ir/img/ball.jpg">
         </div>
     </div>
     <div class="dual-content">
@@ -498,12 +718,12 @@
                 target="_blank">گیت هاب ماژول ارتباط</a>
         </div>
         <div class="image">
-            <img src="http://45.90.72.56:3000/img/rcjv3_dimensions.png">
+            <img src="http://rrlco.ir/img/rcjv3_dimensions.png">
         </div>
     </div>
     <div class="dual-content">
         <div class="image">
-            <img src="http://45.90.72.56:3000/img/robocup1.jpg">
+            <img src="http://rrlco.ir/img/robocup1.jpg">
         </div>
         <div class="space"></div>
         <div class="text-info">
@@ -536,4 +756,110 @@
             <a href="https://junior.robocup.org" class="button" target="_blank">بخش دانش آموزی ربوکاپ</a>
         </div>
     </div>
+
+
+
+
+
+    <div class="announcements-section">
+        <h1 class="title">📢 اطلاعیه ها</h1>
+
+        <div class="announcement-list">
+
+            <div class="announcement-card">
+                <span class="announcement-badge">اطلاعیه شماره 1</span>
+
+                <h2>🖼️ پوستر تیم</h2>
+
+                <p>
+                    تمامی تیم‌های شرکت‌کننده موظف هستند یک پوستر در ابعاد ۹۰ در ۷۰ سانتی‌متر تهیه و در روز مسابقات همراه
+                    خود داشته باشند. این پوستر باید نمایانگر هویت تیم، روند طراحی و ساخت ربات و همچنین دستاوردهای فنی
+                    تیم
+                    باشد.
+                </p>
+
+                <p>
+                    پیشنهاد می‌شود در پوستر مواردی مانند نام تیم، معرفی اعضا، تصاویر ربات، توضیح بخش‌های مکانیکی و
+                    الکترونیکی، الگوریتم‌های مورد استفاده، سنسورها و ویژگی‌های خاص ربات درج شود تا بازدیدکنندگان و
+                    داوران
+                    بتوانند شناخت بهتری از پروژه تیم به‌دست آورند.
+                </p>
+            </div>
+
+            <div class="announcement-card">
+                <span class="announcement-badge">اطلاعیه شماره 2</span>
+
+                <h2>🎤 ارائه فنی</h2>
+
+                <p>
+                    هر تیم باید یک ارائه فنی ۱۰ دقیقه‌ای برای معرفی پروژه و توضیح روند توسعه ربات آماده کند. ارائه باید
+                    به
+                    صورت اسلاید تهیه شده و در زمان مشخص‌شده توسط اعضای تیم ارائه شود.
+                </p>
+
+                <p>
+                    محتوای ارائه می‌تواند شامل مراحل طراحی و ساخت ربات، قطعات و سنسورهای استفاده‌شده، ساختار نرم‌افزار و
+                    الگوریتم‌ها، چالش‌های فنی تیم و همچنین معرفی اعضای تیم باشد. نیازی به نمایش مستقیم کدهای
+                    برنامه‌نویسی
+                    در اسلایدها نیست، اما توضیح ایده‌ها و منطق عملکرد ربات اهمیت زیادی خواهد داشت.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <img src="http://rrlco.ir/io/LWS_Rank1.jpg" alt="" class="p70">
+    <img src="http://rrlco.ir/io/LWS_Rank2.jpg" alt="" class="p70">
+
+    <!-- <section class="tsc-schedule">
+        <div class="tsc-schedule__title">
+            Team Selection Competition 2026 Schedule
+        </div>
+
+        <div class="tsc-schedule__grid">
+            <div class="tsc-schedule__corner"></div>
+            <div class="tsc-schedule__day tsc-schedule__day--yellow">
+                Wednesday<br>13 May 2026
+            </div>
+            <div class="tsc-schedule__day tsc-schedule__day--yellow">
+                Thursday<br>14 May 2026
+            </div>
+            <div class="tsc-schedule__day tsc-schedule__day--yellow">
+                Friday<br>15 May 2026
+            </div>
+
+            <div class="tsc-schedule__time">07:00</div>
+            <div class="tsc-schedule__block tsc-schedule__block--red">Competition Site Closed</div>
+            <div class="tsc-schedule__block tsc-schedule__block--red">Competition Site Closed (TC Only)</div>
+            <div class="tsc-schedule__block tsc-schedule__block--red">Competition Site Closed</div>
+
+            <div class="tsc-schedule__time">08:00 - 12:00</div>
+            <div class="tsc-schedule__block tsc-schedule__block--blue">Setup / Warm-up</div>
+            <div class="tsc-schedule__block tsc-schedule__block--empty"></div>
+            <div class="tsc-schedule__block tsc-schedule__block--empty"></div>
+
+            <div class="tsc-schedule__time">13:00 - 19:00</div>
+            <div class="tsc-schedule__block tsc-schedule__block--green">Competition</div>
+            <div class="tsc-schedule__block tsc-schedule__block--green">Competition</div>
+            <div class="tsc-schedule__block tsc-schedule__block--green">Competition</div>
+
+            <div class="tsc-schedule__time">15:00 - 17:00</div>
+            <div class="tsc-schedule__block tsc-schedule__block--empty"></div>
+            <div class="tsc-schedule__block tsc-schedule__block--empty"></div>
+            <div class="tsc-schedule__block tsc-schedule__block--gray">Results Confirmation / Coordination</div>
+
+            <div class="tsc-schedule__time">17:00 - 19:00</div>
+            <div class="tsc-schedule__block tsc-schedule__block--empty"></div>
+            <div class="tsc-schedule__block tsc-schedule__block--empty"></div>
+            <div class="tsc-schedule__block tsc-schedule__block--navy">Award Ceremony</div>
+
+            <div class="tsc-schedule__time">20:00</div>
+            <div class="tsc-schedule__block tsc-schedule__block--red">Competition Site Closed</div>
+            <div class="tsc-schedule__block tsc-schedule__block--red">Competition Site Closed</div>
+            <div class="tsc-schedule__block tsc-schedule__block--red">Competition Site Closed</div>
+        </div>
+    </section> -->
+
+
 </div>

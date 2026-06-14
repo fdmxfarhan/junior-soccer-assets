@@ -1,8 +1,86 @@
+int goal_time_out = 0;
 void update_all() {
-  robot_angle = gyro.read();
-  read_MV();
-  print_all();
-  if((is_ball && ball_angle < 20 && ball_angle > -20) || BALL_IN_KICKER) SPIN_ON;
+  ldr.read();
+  if (!out_detected()) {
+    robot_angle = gyro.read();
+    read_MV();
+    print_all();
+    shr = analogRead(PA3);
+    shb = analogRead(PA2);
+    shl = analogRead(PA1);
+    D = (shr - shl) * 20;
+  }
+  if ((is_ball && ball_angle < 20 && ball_angle > -20) || BALL_IN_KICKER) SPIN_ON;
   else SPIN_OFF;
-  if(!BALL_IN_KICKER) already_shooted = false;
+  if (!BALL_IN_KICKER) already_shooted = false;
+  iwdg_feed();  // reload watchdog
+}
+void goal() {
+  if (already_shooted) {
+    if (arrived_to_goal) {
+      gyro_reverse = false;
+      use_gyro = true;
+      move(0, VERYLOW_SPEED);
+      if (robot_angle > -20 && robot_angle < 20 && goal_time_out > 80) already_shooted = false;
+      goal_time_out++;
+    } else {
+      gyro_reverse = true;
+      use_gyro = true;
+      move(180, LOW_SPEED);
+      goal_time_out = 0;
+    }
+  } else {
+    gyro_reverse = false;
+    use_gyro = true;
+    already_shooted = true;
+    arrived_to_goal = false;
+    move(0, HIGH_SPEED);
+    shoot();
+  }
+}
+void catch_ball() {
+  gyro_reverse = false;
+  use_gyro = true;
+  float shift = clamp(ball_angle * 1.5, -60, 60);
+  move(ball_angle + shift, MID_SPEED);
+}
+void come_back() {
+  gyro_reverse = false;
+  use_gyro = true;
+  if (shb > 700) motor(-LOW_SPEED + D, -LOW_SPEED - D, LOW_SPEED - D, LOW_SPEED + D);
+  else if (shb < 400) motor(LOW_SPEED + D, LOW_SPEED - D, -LOW_SPEED - D, -LOW_SPEED + D);
+  else motor(D, -D, -D, D);
+}
+void come_back2() {
+  gyro_reverse = false;
+  use_gyro = true;
+  moveXY(D, (800 - shb) * 80, 0);
+}
+void forward() {
+  out();
+  if (BALL_IN_KICKER) {
+    goal();
+  } else if (is_ball) {
+    catch_ball();
+  } else {
+    come_back2();
+  }
+}
+void defend_goal() {
+  if (BALL_IN_KICKER) {
+    goal();
+  } else if (is_ball) {
+    if (ball_distance < 70 || ball_angle > 120 || ball_angle < -120) {
+      out();
+      catch_ball();
+    } else {
+      int Vx = (robot_x - ball_x) * 2000;
+      int Vy = (800 - shb) * 80;
+      if (shl < 400 && Vx < 0) Vx = 0;
+      if (shr < 400 && Vx > 0) Vx = 0;
+      moveXY(Vx, Vy, 0);
+    }
+  } else {
+    come_back();
+  }
 }

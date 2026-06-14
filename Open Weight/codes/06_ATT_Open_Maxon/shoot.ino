@@ -5,10 +5,10 @@ void shoot_init() {
 }
 
 void shoot() {
-  if(already_shooted) return;
-  digitalWrite(PC15, 1);
-  delay(30);
+  for(int i=0; i<2; i++){
+    update_all();
+    move_inside();
+    digitalWrite(PC15, 1);
+  }
   digitalWrite(PC15, 0);
-  delay(30);
-  already_shooted = true;
 }

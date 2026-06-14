@@ -30,8 +30,10 @@ void loop() {
     digitalWrite(PB14, (i/4)%2);
     digitalWrite(PB13, (i/2)%2);
     digitalWrite(PB12, (i/1)%2);
-    sensors[i] = pulseIn(PA0, LOW, 5000);
+    delay(1);
     sensors[i+8] = pulseIn(PA1, LOW, 5000);
+    delay(1);
+    sensors[i] = pulseIn(PA0, LOW, 5000);
     digitalWrite(PB15, 0);
     digitalWrite(PC13, 0);
     delay(4);
