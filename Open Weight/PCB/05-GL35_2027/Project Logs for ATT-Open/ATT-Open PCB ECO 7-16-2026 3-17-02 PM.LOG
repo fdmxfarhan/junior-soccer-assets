@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=J37 Old Footprint=H2 MOLEX New Footprint=XH 2pin
+Change Component Comment : Designator=J37 Old Comment=H2 New Comment=XH2
+Added Member To Class: ClassName=ATT-Open Member=Component D4 DIP Diode
