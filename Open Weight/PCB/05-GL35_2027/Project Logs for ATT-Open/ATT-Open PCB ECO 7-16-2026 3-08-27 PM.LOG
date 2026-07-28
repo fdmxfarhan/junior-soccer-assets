@@ -1,0 +1,41 @@
+Change Component Designator: OldDesignator=D4 NewDesignator=D5
+Change Component Designator: OldDesignator=D5 NewDesignator=D6
+Change Component Designator: OldDesignator=J? NewDesignator=J37
+Added Component: Designator=D4(Diode 1n4007)
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "DO-204-AH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.fairchildsemi.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.fairchildsemi.com/ds/1N%2F1N4148.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "1997"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Diode, Axial; Body 3.8 x 1.9 mm (LxDia. max), Lead Dia. 0.53 mm (max)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=L2(Inductor SMD 3x3.2mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DC Resistance (DCR)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency - Self Resonant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency - Test"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature"; Value = "-40°C ~ 125°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "Inductor 4.7µH SMD 3x3.2mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Q @ Freq"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ratings"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SCDType"; Value = "source"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Ferrite Core"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4µ7"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetD3_1 Pin=D4-1
+Added Pin To Net: NetName=NetD3_2 Pin=D4-2
+Added Pin To Net: NetName=NetD5_2 Pin=L2-1
+Added Pin To Net: NetName=VCC Pin=L2-2
+Change Net Name : Old Net Name=NetD4_1 New Net Name=NetD5_1
+Change Net Name : Old Net Name=NetD5_2 New Net Name=NetD6_2
+Added Member To Class: ClassName=ATT-Open Member=Component D6 DIODE
+Added Member To Class: ClassName=ATT-Open Member=Component J39 XH2
+Added Member To Class: ClassName=ATT-Open Member=Component L2 4µ7

@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=j37 NewDesignator=j38
+Change Component Designator: OldDesignator=J38 NewDesignator=J39
+Change Component Designator: OldDesignator=J39 NewDesignator=J40
+Added Component: Designator=J37(H2 MOLEX ANGLE)
+Added Pin To Net: NetName=NetD3_1 Pin=J37-1
+Added Pin To Net: NetName=GND Pin=J37-2
+Change Net Name : Old Net Name=NetJ38_2 New Net Name=NetJ39_2
+Added Member To Class: ClassName=ATT-Open Member=Component J40 H2
