@@ -13,7 +13,7 @@
 #define SHOOT_TO_GOAL true
 #define SPIN_ON digitalWrite(PC14, 1)
 #define SPIN_OFF digitalWrite(PC14, 0)
-#define OUT_OF_SIGHT_ROBOT_1 50
+#define OUT_OF_SIGHT_ROBOT_1 60
 #define OUT_OF_SIGHT_ROBOT_2 50
 #define IS_Goaller !digitalRead(PA12)
 
@@ -32,8 +32,8 @@ float ball_distance_pixy;
 int OUT_OF_SIGHT;
 //┬┴┬┴┤(･_├┬┴┬┴
 
-float v = 5;
-float v_gardesh = 3;
+float v = 2.4;
+float v_gardesh = 2.4;
 
 //^_____^
 
@@ -43,12 +43,12 @@ float v_gardesh_pixy = 1.0;
 
 bool TDAxis_enable = false;
 bool TDAxis_reverse = false;
-bool is_yellow = false;
-bool is_blue = false;
-bool is_goal = false;
-bool is_yellow_pixy = false;
-bool is_blue_pixy = false;
-bool is_goal_pixy = false;
+bool is_yellow;
+bool is_blue;
+bool is_goal;
+bool is_yellow_pixy;
+bool is_blue_pixy;
+bool is_goal_pixy;
 bool already_shooted = false;
 bool arrived_to_goal = false;
 bool goal_detected = false;
@@ -73,13 +73,13 @@ float goal_angle_pixy;
 float goal_x_pixy;
 float goal_y_pixy;
 ///////////////////////////////////////////// ROBOT 1
-int robot_x_1 = 167;  // OpenMV
-int robot_y_1 = 113;  // OpenMV
+int robot_x_1 = 165;  // OpenMV
+int robot_y_1 = 114;  // OpenMV
 int robot_x_pixy_1 = 156;
 int robot_y_pixy_1 = 250;
 ///////////////////////////////////////////// ROBOT 2
-int robot_x_2 = 163;  // OpenMV
-int robot_y_2 = 130;  // OpenMV
+int robot_x_2 = 159;  // OpenMV
+int robot_y_2 = 122;  // OpenMV
 int robot_x_pixy_2 = 153;
 int robot_y_pixy_2 = 250;
 
@@ -90,8 +90,8 @@ int robot_y_pixy;
 float ball_angle;
 float ball_angle_pixy;
 float ball_distance_meter;
-bool is_ball = false;
-bool is_ball_pixy = false;
+bool is_ball;
+bool is_ball_pixy;
 int a = 100;
 int b = 90;
 int mode = 0;
