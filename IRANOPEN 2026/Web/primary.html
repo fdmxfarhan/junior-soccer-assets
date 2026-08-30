@@ -19,6 +19,7 @@
         text-align: right;
         direction: rtl;
         font-size: 27px;
+        margin-bottom: 20px;
     }
 
     p {
@@ -27,41 +28,138 @@
         direction: rtl;
         font-weight: normal;
         font-size: 18px;
-        line-height: normal;
+        line-height: 1.9;
     }
 
+    /* =========================
+       Resource Links
+       ========================= */
+
     .links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-        margin-top: 50px;
-        margin-bottom: 100px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 40px;
+        margin-bottom: 70px;
     }
 
     a.button {
-        flex: 1;
-        align-self: center;
-        margin: 0 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 60px;
+        box-sizing: border-box;
         background-color: rgb(3, 23, 53);
         padding: 15px 20px;
-        width: fit-content;
-        border-radius: 10px;
+        border-radius: 12px;
         color: white;
         text-decoration: none;
         cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.25s ease;
     }
 
     a.button:hover {
-        background-color: green;
+        background-color: rgb(14, 66, 168);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(3, 23, 53, 0.18);
     }
+
+    /* =========================
+       Rules Section
+       ========================= */
+
+    .rules-section {
+        margin-top: 50px;
+        margin-bottom: 70px;
+    }
+
+    .rules-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-top: 25px;
+    }
+
+    .rule-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        min-height: 90px;
+        padding: 20px;
+        box-sizing: border-box;
+        background: #f7f9fc;
+        border: 1px solid #e1e6ef;
+        border-radius: 15px;
+        text-decoration: none;
+        color: rgb(30, 38, 58);
+        transition: all 0.25s ease;
+    }
+
+    .rule-card:hover {
+        transform: translateY(-3px);
+        border-color: rgb(14, 66, 168);
+        box-shadow: 0 8px 22px rgba(3, 23, 53, 0.10);
+        background: white;
+    }
+
+    .rule-icon {
+        min-width: 50px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(3, 23, 53);
+        color: white;
+        border-radius: 12px;
+        font-size: 24px;
+    }
+
+    .rule-info {
+        flex: 1;
+    }
+
+    .rule-info strong {
+        display: block;
+        color: rgb(3, 23, 53);
+        font-size: 17px;
+        margin-bottom: 6px;
+    }
+
+    .rule-info span {
+        display: block;
+        color: #697386;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .rule-arrow {
+        font-size: 22px;
+        color: rgb(14, 66, 168);
+    }
+
+    .official-rules {
+        border-right: 5px solid rgb(14, 66, 168);
+    }
+
+    .unofficial-rules {
+        border-right: 5px solid rgb(255, 0, 93);
+    }
+
+    /* =========================
+       Dual Content
+       ========================= */
 
     .dual-content {
         display: flex;
         flex-direction: row;
         margin-top: 50px;
         margin-bottom: 50px;
+        gap: 40px;
     }
 
     .dual-content .image {
@@ -70,7 +168,6 @@
 
     .dual-content .text-info {
         flex: 1;
-        margin-left: 40px;
     }
 
     .dual-content .image img {
@@ -83,6 +180,10 @@
         font-weight: bold;
     }
 
+    /* =========================
+       Tutorial
+       ========================= */
+
     .tutorial {
         display: flex;
         flex-direction: row;
@@ -90,6 +191,7 @@
         border: rgb(3, 23, 53) 2px solid;
         border-radius: 20px;
         overflow: hidden;
+        margin-bottom: 50px;
     }
 
     .tabs-view {
@@ -103,12 +205,14 @@
 
     .content-tab video {
         width: 100%;
+        display: block;
     }
 
     .tab-btn {
-        padding: 20px 20px;
+        padding: 20px;
         border-bottom: lightgray 1px solid;
         cursor: pointer;
+        transition: all 0.2s ease;
     }
 
     .tab-btn:hover {
@@ -120,6 +224,10 @@
         color: white;
         background-color: rgb(3, 23, 53);
     }
+
+    /* =========================
+       Mobile
+       ========================= */
 
     @media only screen and (max-width: 800px) {
         .top-video {
@@ -134,97 +242,348 @@
 
         .dual-content .text-info {
             margin-bottom: 30px;
+        }
+
+        .links a.button {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .rules-box {
+            display: block;
+        }
+
+        .rule-card {
+            margin-bottom: 15px;
+        }
+
+        .tutorial {
+            flex-direction: column;
+        }
+
+        .tabs-view {
             margin-left: 0;
         }
 
-        a.button {
-            display: block;
+        .content-tab {
             width: 100%;
-            margin-bottom: 20px;
         }
     }
 </style>
+
+
 <div class="content">
+
     <p>
-        چالش RCJ Soccer Simulation یک رقابت کاملاً آنلاین است که برای اولین‌بار در RoboCup Worldwide 2021 معرفی شد. در
-        این مسابقه، تیم‌ها کدهای خود را ارسال می‌کنند تا روی ربات‌های مجازی در یک زمین فوتبال شبیه‌سازی‌شده مورد آزمایش
-        قرار گیرد. این لیگ فرصتی فراهم می‌کند تا بدون نیاز به سخت‌افزار واقعی، الگوریتم‌های پیشرفته‌ی هوش مصنوعی و کنترل
-        توسعه داده شوند، و به همین دلیل یک نقطه‌ی ورود عالی برای دانش‌آموزانی است که به رباتیک مبتنی بر نرم‌افزار
-        علاقه‌مند هستند.
+        چالش RCJ Soccer Simulation یک رقابت کاملاً آنلاین است که برای اولین‌بار در RoboCup Worldwide 2021 معرفی شد.
+        در این مسابقه، تیم‌ها کدهای خود را ارسال می‌کنند تا روی ربات‌های مجازی در یک زمین فوتبال شبیه‌سازی‌شده مورد
+        آزمایش قرار گیرد. این لیگ فرصتی فراهم می‌کند تا بدون نیاز به سخت‌افزار واقعی، الگوریتم‌های پیشرفته‌ی هوش
+        مصنوعی و کنترل توسعه داده شوند، و به همین دلیل یک نقطه‌ی ورود عالی برای دانش‌آموزانی است که به رباتیک
+        مبتنی بر نرم‌افزار علاقه‌مند هستند.
         <br>
-        در حال حاضر این مسابقه در سطح بین‌المللی به‌صورت فعال برگزار نمی‌شود، اما تیم‌ها همچنان می‌توانند از آن برای
-        توسعه‌ی ربات‌های خود استفاده کنند.
+        در حال حاضر این مسابقه در سطح بین‌المللی به‌صورت فعال برگزار نمی‌شود، اما تیم‌ها همچنان می‌توانند از آن
+        برای توسعه‌ی ربات‌های خود استفاده کنند.
     </p>
+
+
     <div class="top-video">
         <div id="53242281669">
             <script type="text/JavaScript"
                 src="https://www.aparat.com/embed/u53k02k?data[rnddiv]=53242281669&data[responsive]=yes"></script>
         </div>
     </div>
+
+
     <h1 class="title">📢 تعداد اعضا و شرایط سنی تیم‌های پرایمری و سکندری</h1>
+
     <p>
-        الف) پرایمری: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های پرایمری حداقل 10 سال و حداکثر 14 سال تمام می
-        باشد(پایه‌های چهارم، پنجم،ششم، هفتم و هشتم) و تعداد اعضای شرکت گننده: 5 نفر عضو، 1 نفر مربی و 1 نفر سرپرست
-        می‌توانند باشند. البته در لیگ onstage تیم‌ها می‌توانند یک عضو بیشتر داشته باشند.
+        الف) پرایمری: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های پرایمری حداقل 10 سال و حداکثر 14 سال تمام
+        می‌باشد (پایه‌های چهارم، پنجم، ششم، هفتم و هشتم) و تعداد اعضای شرکت‌کننده: 5 نفر عضو، 1 نفر مربی و 1 نفر
+        سرپرست می‌توانند باشند. البته در لیگ OnStage تیم‌ها می‌توانند یک عضو بیشتر داشته باشند.
     </p>
+
     <p>
-        ب) سکندری: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های سکندری حداقل 14 سال و حداکثر 18 سال تمام می
-        باشد(پایه‌های هشتم،نهم،دهم،یازدهم و دوازدهم) و تعداد اعضای شرکت گننده: 5 نفر عضو، 1 نفر مربی و 1 نفر سرپرست
-        می‌توانند باشند. البته در لیگ onstage تیم‌ها می‌توانند یک عضو بیشتر داشته باشند.
+        ب) سکندری: محدوده سنی دانش‌آموزان شرکت کننده در لیگ‌های سکندری حداقل 14 سال و حداکثر 18 سال تمام
+        می‌باشد (پایه‌های هشتم، نهم، دهم، یازدهم و دوازدهم) و تعداد اعضای شرکت‌کننده: 5 نفر عضو، 1 نفر مربی و 1 نفر
+        سرپرست می‌توانند باشند. البته در لیگ OnStage تیم‌ها می‌توانند یک عضو بیشتر داشته باشند.
     </p>
+
+
+    <!-- =========================
+         Downloads
+         ========================= -->
+
+    <h1 class="title">📥 دانلود نرم‌افزار و محیط مسابقه</h1>
+
     <div class="links">
-        <a class="button" href="https://github.com/cyberbotics/webots/releases/tag/R2025a" target="_blank">دانلود Webots
-            نسخه R2025a</a>
-        <a class="button" href="https://github.com/robocup-junior/rcj-soccersim" target="_blank">صفحه گیت هاب شبیه ساز
-            rcj-soccer-sim</a>
-        <a class="button" href="https://github.com/robocup-junior/rcj-soccersim/archive/master.zip" download>دانلود
-            مستقیم شبیه ساز</a>
+
+        <a class="button"
+            href="https://assets.rcjsoccersim.ir/webots-R2025a_setup.exe"
+            target="_blank">
+            💻 دانلود Webots R2025a
+        </a>
+
+        <a class="button"
+            href="https://assets.rcjsoccersim.ir/rcj-soccersim-master.zip"
+            download>
+            ⚽ دانلود محیط شبیه‌سازی
+        </a>
+
     </div>
+
+
+    <!-- =========================
+         Rules
+         ========================= -->
+
+    <div class="rules-section">
+
+        <h1 class="title">📜 قوانین و منابع رسمی مسابقه</h1>
+
+        <p>
+            تمامی تیم‌ها پیش از شروع توسعه برنامه و آماده‌سازی برای مسابقه باید قوانین و مستندات مربوط به
+            RCJ Soccer Simulation را به‌دقت مطالعه کنند. نسخه‌های زیر برای استفاده تیم‌ها در ایران اپن ۲۰۲۶
+            در دسترس قرار گرفته‌اند.
+        </p>
+
+        <div class="rules-box">
+
+            <a class="rule-card official-rules"
+                href="https://assets.rcjsoccersim.ir/rules-2026.0.pdf"
+                target="_blank">
+
+                <div class="rule-icon">
+                    📕
+                </div>
+
+                <div class="rule-info">
+                    <strong>قوانین رسمی مسابقات</strong>
+                    <span>
+                        نسخه PDF قوانین رسمی RCJ Soccer Simulation<br>
+                        بروزرسانی: شنبه ۰۹/۰۳/۱۴۰۴
+                    </span>
+                </div>
+
+                <div class="rule-arrow">
+                    ←
+                </div>
+
+            </a>
+
+
+            <a class="rule-card official-rules"
+                href="https://assets.rcjsoccersim.ir/rules.html"
+                target="_blank">
+
+                <div class="rule-icon">
+                    📖
+                </div>
+
+                <div class="rule-info">
+                    <strong>قوانین رسمی — نسخه آنلاین</strong>
+                    <span>
+                        مشاهده نسخه تحت وب قوانین مسابقات
+                    </span>
+                </div>
+
+                <div class="rule-arrow">
+                    ←
+                </div>
+
+            </a>
+
+
+            <a class="rule-card unofficial-rules"
+                href="https://assets.rcjsoccersim.ir/persian_rules_unofficial.html"
+                target="_blank">
+
+                <div class="rule-icon">
+                    🇮🇷
+                </div>
+
+                <div class="rule-info">
+                    <strong>ترجمه غیررسمی قوانین به فارسی</strong>
+                    <span>
+                        ترجمه فارسی قوانین برای مطالعه و درک بهتر مقررات مسابقه
+                    </span>
+                </div>
+
+                <div class="rule-arrow">
+                    ←
+                </div>
+
+            </a>
+
+        </div>
+
+        <p class="note">
+            ⚠️ توجه: در صورت وجود اختلاف میان ترجمه فارسی و نسخه اصلی قوانین، نسخه رسمی قوانین مسابقات ملاک خواهد بود.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         Winning Team
+         ========================= -->
+
     <div class="dual-content">
+
         <div class="text-info">
-            <h1 class="title">🚀نمونه برنامه تیم اول</h1>
-            <p>به جهت پیشرفت سطح مسابقه و تیم‌ها و طبق قانون مسابقات ربوکاپ جهانی، هر سال سورس کدهای تیم برتر برای تیم
-                های دیگر در دسترس قرار خواهد گرفت. جهت دانلود می‌توانید از لینک زیر اقدام نمایید.</p>
+
+            <h1 class="title">🚀 نمونه برنامه تیم اول</h1>
+
+            <p>
+                به جهت پیشرفت سطح مسابقه و تیم‌ها و طبق قانون مسابقات ربوکاپ جهانی، هر سال سورس کدهای تیم برتر
+                برای تیم‌های دیگر در دسترس قرار خواهد گرفت. جهت دانلود می‌توانید از لینک زیر اقدام نمایید.
+            </p>
+
             <br>
-            <a class="button" href="https://github.com/fdmxfarhan/rcj-soccer-sim-2025" target="_blank">دانلود سورس
-                برنامه تیم برتر
-                2025</a>
+
+            <a class="button"
+                href="https://github.com/fdmxfarhan/rcj-soccer-sim-2025"
+                target="_blank">
+                دانلود سورس برنامه تیم برتر 2025
+            </a>
+
         </div>
+
         <div class="image">
-            <img src="http://45.90.72.56:3000/files/1752439124001/webot%20(1).jpg">
+            <img src="https://rrlco.ir/files/1752439124001/webot%20(1).jpg">
         </div>
+
     </div>
+
+
+    <!-- =========================
+         Technical Documentation
+         ========================= -->
+
     <div class="dual-content">
+
         <div class="text-info">
-            <h1 class="title">💡مستندات فنی</h1>
-            <p>تمامی تیم‌ها باید تا تاریخ مشخص شده مستندات فنی خود، شامل یک فیلم 2 دقیقه ای از عملکرد برنامه خود و یک
-                گزارش فنی در قالب یک فایل PDF از طریق سایت ایران اپن ارسال نمایند. در گزارش فنی باید معرفی تیم و اعضای
-                تیم، تاریخچه فعالیت تیم و توضیحاتی از الگوریتم های استفاده شده ذکر شود. </p>
+
+            <h1 class="title">💡 مستندات فنی</h1>
+
+            <p>
+                تمامی تیم‌ها باید تا تاریخ مشخص شده مستندات فنی خود، شامل یک فیلم 2 دقیقه‌ای از عملکرد برنامه خود
+                و یک گزارش فنی در قالب یک فایل PDF از طریق سایت ایران اپن ارسال نمایند.
+                در گزارش فنی باید معرفی تیم و اعضای تیم، تاریخچه فعالیت تیم و توضیحاتی از الگوریتم‌های استفاده شده
+                ذکر شود.
+            </p>
+
             <br>
-            <p class="note">تاریخ ارسال مستندات اعلام می‌گردد</p>
+
+            <p class="note">
+                تاریخ ارسال مستندات اعلام می‌گردد.
+            </p>
+
         </div>
+
         <div class="image">
-            <img src="http://45.90.72.56:3000/img/tdpvideo.png">
+            <img src="https://rrlco.ir/img/tdpvideo.png">
         </div>
+
     </div>
-    <h1 class="title">ویدئوهای آموزشی</h1>
+
+
+    <!-- =========================
+         Tutorials
+         ========================= -->
+
+    <h1 class="title">🎓 ویدئوهای آموزشی</h1>
+
     <div class="tutorial">
+
         <div class="tabs-view">
-            <div class="tab-btn active" id="tab-btn1">معرفی شبیه ساز</div>
-            <!-- <div class="tab-btn" id="tab-btn2">مروری بر پایتون</div> -->
-            <!-- <div class="tab-btn" id="tab-btn3">نصب نرم افزار</div> -->
-            <div class="tab-btn" id="tab-btn4">حرکت ربات ها</div>
-            <!-- <div class="tab-btn" id="tab-btn5">سنسور توپ</div> -->
+
+            <div class="tab-btn active" id="tab-btn1">
+                معرفی شبیه‌ساز
+            </div>
+
+            <!--
+            <div class="tab-btn" id="tab-btn2">
+                مروری بر پایتون
+            </div>
+            -->
+
+            <!--
+            <div class="tab-btn" id="tab-btn3">
+                نصب نرم‌افزار
+            </div>
+            -->
+
+            <div class="tab-btn" id="tab-btn4">
+                حرکت ربات‌ها
+            </div>
+
+            <!--
+            <div class="tab-btn" id="tab-btn5">
+                سنسور توپ
+            </div>
+            -->
+
         </div>
-        <div class="content-tab" id="content-tab1"><video controls controlsList="nodownload"
-                oncontextmenu="return false;" src="http://45.90.72.56:3000/rcjsim/01 introduction.mp4"></video></div>
-        <!-- <div class="content-tab hidden" id="content-tab2"><video controls controlsList="nodownload" oncontextmenu="return false;" src="http://45.90.72.56:3000/rcjsim/02 Python Review.mp4"></video></div> -->
-        <!-- <div class="content-tab hidden" id="content-tab3"><video controls controlsList="nodownload" oncontextmenu="return false;" src="http://45.90.72.56:3000/rcjsim/03 Installation.mp4"></video></div> -->
-        <div class="content-tab hidden" id="content-tab4"><video controls controlsList="nodownload"
-                oncontextmenu="return false;" src="http://45.90.72.56:3000/rcjsim/04 Robot Move.mp4"></video></div>
-        <!-- <div class="content-tab hidden" id="content-tab5"><video controls controlsList="nodownload" oncontextmenu="return false;" src="http://45.90.72.56:3000/rcjsim/05 Ball Sensor.mp4"></video></div> -->
+
+
+        <div class="content-tab" id="content-tab1">
+
+            <video controls
+                controlsList="nodownload"
+                oncontextmenu="return false;"
+                src="https://rrlco.ir/rcjsim/01 introduction.mp4">
+            </video>
+
+        </div>
+
+
+        <!--
+        <div class="content-tab hidden" id="content-tab2">
+            <video controls
+                controlsList="nodownload"
+                oncontextmenu="return false;"
+                src="https://rrlco.ir/rcjsim/02 Python Review.mp4">
+            </video>
+        </div>
+        -->
+
+
+        <!--
+        <div class="content-tab hidden" id="content-tab3">
+            <video controls
+                controlsList="nodownload"
+                oncontextmenu="return false;"
+                src="https://rrlco.ir/rcjsim/03 Installation.mp4">
+            </video>
+        </div>
+        -->
+
+
+        <div class="content-tab hidden" id="content-tab4">
+
+            <video controls
+                controlsList="nodownload"
+                oncontextmenu="return false;"
+                src="https://rrlco.ir/rcjsim/04 Robot Move.mp4">
+            </video>
+
+        </div>
+
+
+        <!--
+        <div class="content-tab hidden" id="content-tab5">
+            <video controls
+                controlsList="nodownload"
+                oncontextmenu="return false;"
+                src="https://rrlco.ir/rcjsim/05 Ball Sensor.mp4">
+            </video>
+        </div>
+        -->
+
     </div>
+
 </div>
+
 
 <script>
     // Select all tab buttons and tab contents
@@ -233,6 +592,7 @@
 
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+
             // Remove active from all buttons
             tabButtons.forEach(b => b.classList.remove('active'));
 
@@ -242,11 +602,12 @@
             // Activate clicked button
             btn.classList.add('active');
 
-            // Get number of clicked button (e.g. tab-btn3 → 3)
+            // Get number of clicked button
             const id = btn.id.replace('tab-btn', '');
 
             // Show corresponding tab content
             document.getElementById('content-tab' + id).classList.remove('hidden');
+
         });
     });
 </script>
