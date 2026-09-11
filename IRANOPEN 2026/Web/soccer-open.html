@@ -1,4 +1,3 @@
-
 <style>
     /* ===== Announcements Section ===== */
     .announcements-section {
@@ -57,7 +56,8 @@
             font-size: 20px;
         }
     }
-        /* ===== استایل اختصاصی کادر فرم TDP ===== */
+
+    /* ===== استایل اختصاصی کادر فرم TDP ===== */
     .form-iframe-container {
         width: 100%;
         margin: 40px 0;
@@ -86,7 +86,8 @@
 
     .tdp-iframe {
         width: 100%;
-        height: 950px; /* ارتفاع مناسب برای نمایش فرم */
+        height: 950px;
+        /* ارتفاع مناسب برای نمایش فرم */
         border: none;
         display: block;
     }
@@ -96,7 +97,6 @@
             height: 850px;
         }
     }
-
 </style>
 
 <style>
@@ -270,24 +270,210 @@
             margin-bottom: 20px;
         }
     }
-    img.full{
+
+    img.full {
         width: 100%;
         display: block;
 
     }
-    img.p80{
+
+    img.p80 {
         width: 80%;
         margin: auto;
         display: block;
     }
-    img.p70{
+
+    img.p70 {
         width: 70%;
         margin: auto;
         display: block;
     }
 </style>
 
+<style>
+    /* ========================================= RoboCup Iran Open 2026 Junior Soccer — Persian Schedule ========================================= */
+    .rcj-schedule {
+        width: 100%;
+        padding: 30px 10px;
+        background: #fff;
+        font-family: Tahoma, Arial, sans-serif;
+        direction: rtl;
+        overflow-x: auto;
+    }
 
+    .rcj-schedule-table {
+        width: 100%;
+        max-width: 1200px;
+        min-width: 900px;
+        margin: auto;
+        border-collapse: separate;
+        border-spacing: 6px;
+        direction: rtl;
+    }
+
+    /* Header */
+    .rcj-schedule-table th {
+        padding: 12px 8px;
+        background: #172b4d;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        border-radius: 8px;
+        white-space: nowrap;
+    }
+
+    .rcj-schedule-table th:first-child {
+        width: 150px;
+    }
+
+    /* ستون روز */
+    .rcj-day {
+        padding: 12px 10px !important;
+        text-align: right !important;
+        vertical-align: middle;
+        background: #f4f7fb !important;
+        color: #172b4d !important;
+        border: 1px solid #e4eaf1;
+    }
+
+    .rcj-day strong {
+        display: block;
+        font-size: 18px;
+    }
+
+    .rcj-day span {
+        display: block;
+        margin-top: 4px;
+        color: #8a97a8;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    /* سلول‌ها */
+    .rcj-schedule-table td {
+        height: 82px;
+        padding: 5px;
+        vertical-align: middle;
+        background: #f8fafc;
+        border-radius: 8px;
+    }
+
+    /* کارت رویداد */
+    .rcj-event {
+        height: 100%;
+        min-height: 70px;
+        padding: 10px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 7px;
+        border: 1px solid transparent;
+    }
+
+    .rcj-event-title {
+        color: #172b4d;
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.6;
+    }
+
+    .rcj-event-subtitle {
+        margin-top: 4px;
+        color: #7b8797;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    /* رنگ رویدادها */
+    .rcj-setup {
+        background: #eef7ff;
+        border-color: #d5ebff;
+    }
+
+    .rcj-match {
+        background: #edfaf3;
+        border-color: #d3f2e0;
+    }
+
+    .rcj-interview {
+        background: #fff8e8;
+        border-color: #f8e7b6;
+    }
+
+    .rcj-break {
+        background: #f5f6f8;
+        border-color: #e8eaed;
+    }
+
+    .rcj-final {
+        background: #fff0f2;
+        border-color: #ffd4da;
+    }
+
+    .rcj-final .rcj-event-title {
+        color: #d83d57;
+    }
+
+    /* رنگ روزها */
+    .day-1 {
+        border-right: 4px solid #3b9cff !important;
+    }
+
+    .day-2 {
+        border-right: 4px solid #35c982 !important;
+    }
+
+    .day-3 {
+        border-right: 4px solid #ffb443 !important;
+    }
+
+    .day-4 {
+        border-right: 4px solid #f05d70 !important;
+    }
+
+    /* فینال */
+    .rcj-grand-final {
+        background: linear-gradient(135deg, #fff0f2, #fff8e8);
+        border: 1px solid #ffcbd3;
+    }
+
+    .rcj-grand-final .rcj-event-title {
+        font-size: 18px;
+        color: #d73550;
+    }
+
+    /* موبایل */
+    @media (max-width: 700px) {
+        .rcj-schedule {
+            padding: 20px 5px;
+        }
+
+        .rcj-schedule-table {
+            min-width: 850px;
+            border-spacing: 4px;
+        }
+
+        .rcj-schedule-table td {
+            height: 75px;
+        }
+
+        .rcj-event {
+            min-height: 65px;
+            padding: 7px 5px;
+        }
+
+        .rcj-event-title {
+            font-size: 12px;
+        }
+
+        .rcj-event-subtitle {
+            font-size: 10px;
+        }
+    }
+</style>
 
 <div class="content">
     <p>
@@ -326,7 +512,8 @@
             <h2>🎥 فیلم عملکرد ربات</h2>
             <ul>
                 <li>حداکثر زمان ویدئو: ۲ دقیقه</li>
-                <li>حداکثر حجم فایل: ۱۰ مگابایت (در صورتی که حجم ویدئو از 10 مگابایت بیشتر بود آن را در آپارات آپلود نموده و لینک دسترسی آن را به آدرس daemifarhan@gmail.com ایمیل کنید)</li> 
+                <li>حداکثر حجم فایل: ۱۰ مگابایت (در صورتی که حجم ویدئو از 10 مگابایت بیشتر بود آن را در آپارات آپلود
+                    نموده و لینک دسترسی آن را به آدرس daemifarhan@gmail.com ایمیل کنید)</li>
                 <li>نمایش عملکرد هر دو ربات (در صورت دو به دو بودن لیگ) و تمامی قابلیت‌های آن‌ها</li>
                 <li>ربات‌های شرکت‌کننده در مسابقات نباید تفاوت اساسی با ربات‌های نمایش‌داده‌شده در فیلم داشته باشند</li>
                 <li>فیلم‌ها باید با ربات‌های نهایی و جدید تیم ضبط شده باشند</li>
@@ -405,7 +592,8 @@
                 قابل‌اعتماد برای برقراری ارتباط ربات با ربات و ربات با داور، این ماژول توسط ربوکاپ جهانی معرفی شد.
 
                 لازم به ذکر است که در مسابقات ایران اپن امسال این ماژول به‌ صورت آزمایشی در لیگ های جانبی مورد
-                استفاده قرار خواهد گرفت و تیم‌ها باید محل نصب و جانمایی آن را روی ربات‌های خود در نظر بگیرند؛ چرا که در مسابقات جهانی
+                استفاده قرار خواهد گرفت و تیم‌ها باید محل نصب و جانمایی آن را روی ربات‌های خود در نظر بگیرند؛ چرا که در
+                مسابقات جهانی
                 این ماژول مورد استفاده قرار می‌گیرد.
             </p>
             <br>
@@ -471,13 +659,15 @@
 
                 <p>
                     تمامی تیم‌های شرکت‌کننده موظف هستند یک پوستر در ابعاد ۹۰ در ۷۰ سانتی‌متر تهیه و در روز مسابقات همراه
-                    خود داشته باشند. این پوستر باید نمایانگر هویت تیم، روند طراحی و ساخت ربات و همچنین دستاوردهای فنی تیم
+                    خود داشته باشند. این پوستر باید نمایانگر هویت تیم، روند طراحی و ساخت ربات و همچنین دستاوردهای فنی
+                    تیم
                     باشد.
                 </p>
 
                 <p>
                     پیشنهاد می‌شود در پوستر مواردی مانند نام تیم، معرفی اعضا، تصاویر ربات، توضیح بخش‌های مکانیکی و
-                    الکترونیکی، الگوریتم‌های مورد استفاده، سنسورها و ویژگی‌های خاص ربات درج شود تا بازدیدکنندگان و داوران
+                    الکترونیکی، الگوریتم‌های مورد استفاده، سنسورها و ویژگی‌های خاص ربات درج شود تا بازدیدکنندگان و
+                    داوران
                     بتوانند شناخت بهتری از پروژه تیم به‌دست آورند.
                 </p>
             </div>
@@ -488,26 +678,40 @@
                 <h2>🎤 ارائه فنی</h2>
 
                 <p>
-                    هر تیم باید یک ارائه فنی ۱۰ دقیقه‌ای برای معرفی پروژه و توضیح روند توسعه ربات آماده کند. ارائه باید به
+                    هر تیم باید یک ارائه فنی ۱۰ دقیقه‌ای برای معرفی پروژه و توضیح روند توسعه ربات آماده کند. ارائه باید
+                    به
                     صورت اسلاید تهیه شده و در زمان مشخص‌شده توسط اعضای تیم ارائه شود.
                 </p>
 
                 <p>
                     محتوای ارائه می‌تواند شامل مراحل طراحی و ساخت ربات، قطعات و سنسورهای استفاده‌شده، ساختار نرم‌افزار و
-                    الگوریتم‌ها، چالش‌های فنی تیم و همچنین معرفی اعضای تیم باشد. نیازی به نمایش مستقیم کدهای برنامه‌نویسی
+                    الگوریتم‌ها، چالش‌های فنی تیم و همچنین معرفی اعضای تیم باشد. نیازی به نمایش مستقیم کدهای
+                    برنامه‌نویسی
                     در اسلایدها نیست، اما توضیح ایده‌ها و منطق عملکرد ربات اهمیت زیادی خواهد داشت.
                 </p>
+            </div>
+
+
+            <div class="announcement-card">
+                <span class="announcement-badge">اطلاعیه شماره 3</span>
+
+                <h2>اطلاعیه مورخ 12 شهریور 1405</h2>
+
+                <p>
+                    در این دوره از مسابقات، بخشی از امتیازات نهایی در قالب پوستر ، TDP ، ویدئو ، ارائه فنی ، مصاحبه فنی
+                    و تکمیل فرم مستندات فنی تیم خواهد بود.
+                    لذا تیم ها فرصت دارند تا روز اول مسابقه نسبت به تحویل موارد فوق اقدام نمایند.
+                    مسئولیت عدم اطلاع از این مورد بر عهده تیم ها می باشد.
+                </p>
+
             </div>
 
         </div>
     </div>
 
-        <!-- کادر آی‌فریم فرم ارسال TDP -->
+    <!-- کادر آی‌فریم فرم ارسال TDP -->
     <div class="form-iframe-container">
-        <iframe 
-            class="tdp-iframe" 
-            src="http://io.rrlco.ir" 
-            title="فرم ارسال TDP ایران‌اوپن ربوکاپ ۲۰۲۶"
+        <iframe class="tdp-iframe" src="http://185.126.203.133:3002" title="فرم ارسال TDP ایران‌اوپن ربوکاپ ۲۰۲۶"
             loading="lazy">
         </iframe>
     </div>
@@ -515,4 +719,174 @@
 
     <!-- <img src="http://rrlco.ir/io/OW_Rank1.jpg" alt="" class="p70"> -->
 
+    <section class="rcj-schedule">
+        <table class="rcj-schedule-table">
+            <thead>
+                <tr>
+                    <th>روز</th>
+                    <th>۰۸:۰۰ – ۱۰:۰۰</th>
+                    <th>۱۰:۰۰ – ۱۲:۰۰</th>
+                    <th>۱۲:۰۰ – ۱۴:۰۰</th>
+                    <th>۱۴:۰۰ – ۱۶:۰۰</th>
+                    <th>۱۶:۰۰ – ۱۸:۰۰</th>
+                    <th>۱۸:۰۰ – ۲۰:۰۰</th>
+                </tr>
+            </thead>
+            <tbody> <!-- روز اول -->
+                <tr>
+                    <th class="rcj-day day-1"> <strong>روز اول</strong> <span>۲۴ شهریور ۱۴۰۵</span> </th>
+                    <td>
+                        <div class="rcj-event rcj-setup">
+                            <div class="rcj-event-title"> آماده‌سازی تیم‌ها </div>
+                            <div class="rcj-event-subtitle"> ثبت‌نام و آماده‌سازی زمین </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-setup">
+                            <div class="rcj-event-title"> تأیید صلاحیت ربات‌ها </div>
+                            <div class="rcj-event-subtitle"> بررسی فنی و تست ربات </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-break">
+                            <div class="rcj-event-title"> ناهار </div>
+                            <div class="rcj-event-subtitle"> استراحت و امور فنی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> مسابقات دوستانه </div>
+                            <div class="rcj-event-subtitle"> بازی‌های تمرینی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-setup">
+                            <div class="rcj-event-title"> تمرین آزاد </div>
+                            <div class="rcj-event-subtitle"> تنظیمات نهایی ربات </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-setup">
+                            <div class="rcj-event-title"> جلسه توجیهی مسابقات </div>
+                            <div class="rcj-event-subtitle"> قوانین و اعلامیه‌ها </div>
+                        </div>
+                    </td>
+                </tr> <!-- روز دوم -->
+                <tr>
+                    <th class="rcj-day day-2"> <strong>روز دوم</strong> <span>۲۵ شهریور ۱۴۰۵</span> </th>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> دور اول </div>
+                            <div class="rcj-event-subtitle"> مرحله مقدماتی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> دور دوم </div>
+                            <div class="rcj-event-subtitle"> مرحله مقدماتی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-break">
+                            <div class="rcj-event-title"> ناهار </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> دور سوم </div>
+                            <div class="rcj-event-subtitle"> مرحله مقدماتی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-interview">
+                            <div class="rcj-event-title"> مصاحبه با تیم‌ها </div>
+                            <div class="rcj-event-subtitle"> ارزیابی فنی و تیمی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-setup">
+                            <div class="rcj-event-title"> تمرین آزاد </div>
+                            <div class="rcj-event-subtitle"> پشتیبانی فنی </div>
+                        </div>
+                    </td>
+                </tr> <!-- روز سوم -->
+                <tr>
+                    <th class="rcj-day day-3"> <strong>روز سوم</strong> <span>۲۶ شهریور ۱۴۰۵</span> </th>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> دور چهارم </div>
+                            <div class="rcj-event-subtitle"> مرحله مقدماتی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> دور پنجم </div>
+                            <div class="rcj-event-subtitle"> مرحله مقدماتی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-break">
+                            <div class="rcj-event-title"> ناهار </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-match">
+                            <div class="rcj-event-title"> دور ششم </div>
+                            <div class="rcj-event-subtitle"> آخرین دور مقدماتی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-interview">
+                            <div class="rcj-event-title"> مصاحبه با تیم‌ها </div>
+                            <div class="rcj-event-subtitle"> ارزیابی نهایی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-setup">
+                            <div class="rcj-event-title"> اعلام رده‌بندی نهایی </div>
+                            <div class="rcj-event-subtitle"> قرعه‌کشی نیمه‌نهایی </div>
+                        </div>
+                    </td>
+                </tr> <!-- روز چهارم -->
+                <tr>
+                    <th class="rcj-day day-4"> <strong>روز چهارم</strong> <span>۲۷ شهریور ۱۴۰۵</span> </th>
+                    <td>
+                        <div class="rcj-event rcj-final">
+                            <div class="rcj-event-title"> مرحله نیمه‌نهایی </div>
+                            <div class="rcj-event-subtitle"> مرحله حذفی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-final">
+                            <div class="rcj-event-title"> رده‌بندی </div>
+                            <div class="rcj-event-subtitle"> مسابقه کسب مقام سوم </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-break">
+                            <div class="rcj-event-title"> ناهار </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-grand-final">
+                            <div class="rcj-event-title"> 🏆 فینال بزرگ </div>
+                            <div class="rcj-event-subtitle"> مسابقه قهرمانی </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-final">
+                            <div class="rcj-event-title"> مراسم اختتامیه </div>
+                            <div class="rcj-event-subtitle"> اهدای جوایز و مدال‌ها </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rcj-event rcj-final">
+                            <div class="rcj-event-title"> پایان مسابقات </div>
+                            <div class="rcj-event-subtitle"> عکس یادگاری تیم‌ها </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </div>
